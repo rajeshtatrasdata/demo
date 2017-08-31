@@ -1,0 +1,158 @@
+{
+  "data": {
+    "veneer": {
+      "quantity": 48,
+      "species": 1,
+      "grain_pattern": 2,
+      "pattern": 4,
+      "grain_direction": 3,
+      "grade": 6,
+      "thickness": 4,
+      "width": "7/16",
+      "length": "7/16",
+      "finish_thick": 8,
+      "backer": 9,
+      "sequenced": 1
+    },
+    "core": {
+      "core_type": 2,
+      "thickness": 5,
+      "finish_choice": 3,
+      "uv_curved": 1,
+      "sheen": 3,
+      "core_same_on": [1, 2, 3, 4, 5]
+    },
+    "edgedetails": {
+      "edge_details_active": 1,
+      "top_edge": {
+        "edge_finish": 1,
+        "edge_size": 3,
+        "edge_finish_species": 4,
+        "edge_details_same_on": [1, 3, 7]
+      },      
+      "right_edge_option":{
+        "right_edge_finish":1,
+        "right_edge_size":2,
+        "right_edge_options":5
+      },
+      "right_edge_same_on":2,
+      "left_edge_option":{
+        "left_edge_finish":1,
+        "left_edge_size":2,
+        "left_edge_options":5 
+      }
+    },
+    "milling": {
+      "milling_choice": 2,
+      "milling_description": 3,
+      "cost_per": 3,
+      "unit_of_measure":2
+    },
+    "labels": {
+      "labels_finish": 1,
+      "label_numbers":24,
+      "addon_data":[2,4,5,6],
+      "lumber_fee": 3,
+      "comments": "This is test comments",
+      "file": 5
+    }
+
+  },
+  "lists":{
+      "species":[
+           {"key":"0", "value":"Walnut"}
+        ],
+      "grain_pattern":[
+        { "key":"0", "value":"plain Sliced"},
+        { "key":"1", "value":"Rotary"},
+        { "key":"2", "value":"Rift"},
+        { "key":"3", "value":"Quarted"},
+        { "key":"4", "value":"Burl"}
+      ],
+      "flakey_and_figured":[
+        { "key":"0", "value":"Flakey Light"},
+        { "key":"1", "value":"Flakey Medium"},
+        { "key":"2", "value":"Flakey Heavy"},
+        { "key":"3", "value":"Figured Light"},
+        { "key":"4", "value":"Figured Medium"},
+        { "key":"5", "value":"Figured Heavy"}
+      ],
+      "pattern_match":[
+        {"key":"0", "value":"Book"},
+        {"key":"1", "value":"Slip"},
+        {"key":"2", "value":"Running"},
+        {"key":"3", "value":"Balance"},
+        {"key":"4", "value":"Center/Balance"},
+        {"key":"5", "value":"Random"},
+        {"key":"6", "value":"Butcher Block"},
+        {"key":"7", "value":"Sketch Face"},
+        {"key":"8", "value":"Sunburst"},
+        {"key":"9", "value":"Diamond"},
+        {"key":"10", "value":"Reverse Diamond"},
+        {"key":"11", "value":"Box Matrix"},
+        {"key":"12", "value":"Reverse Box Matrix"},
+        {"key":"13", "value":"Chevron"}
+      ],
+      "grain_direction":[
+        {"key":"0", "value":"Horizontal"},
+        {"key":"1", "value":"Vertical"},
+        {"key":"2", "value":"Sketch Face"}
+      ],
+      "face_grade":[
+        {"key":"0", "value":"B-Production"},
+        {"key":"1", "value":"AB-Good"},
+        {"key":"2", "value":"A-Better"},
+        {"key":"3", "value":"AA-Best"}
+      ],
+      "thickness":[
+        {"key":"0", "value":"1/18"},
+        {"key":"1", "value":"2 MIL"},
+        {"key":"2", "value":"3 MIL"},
+        {"key":"3", "value":"10 MIL"},
+        {"key":"4", "value":"4.5"},
+        {"key":"5", "value":"1/40th"}
+      ],
+      "core_type":[
+        {"key":"0", "value":"Particle Board"},
+        {"key":"1", "value":"MDF"},
+        {"key":"2", "value":"Medex"},
+        {"key":"3", "value":"Exteria"},
+        {"key":"4", "value":"PUMA FR VC"},
+        {"key":"5", "value":"Baltic Birch"},
+        {"key":"6", "value":"Veneer Core"},
+        {"key":"7", "value":"HDF"},
+        {"key":"8", "value":"Clasic Core"},
+        {"key":"9", "value":"MRF 50"},
+        {"key":"10", "value":"Apex"},
+        {"key":"11", "value":"Lumber Core"},
+        {"key":"12", "value":"Ultra Light"},
+        {"key":"13", "value":"Honey Comb"},
+        {"key":"14", "value":"LVL"},
+        {"key":"15", "value":"MDO"},
+        {"key":"16", "value":"paper Back"},
+        {"key":"17", "value":"Wood and Wood"},
+        {"key":"18", "value":"PB"}
+      ],
+      "backer":[
+         {"key":"0", "value":"none"},
+         {"key":"1", "value":"Paper"},
+         {"key":"2", "value":"Poly"},
+         {"key":"3", "value":"Same as Front"}
+      ],
+      "same_on":[
+        {"key":"0", "value":"Back Side"},
+        {"key":"1", "value":"Bottom Edge"},
+        {"key":"2", "value":"Top Edge"},
+        {"key":"3", "value":"Right Edge"},
+        {"key":"4", "value":"Left Edge"}
+      ],
+      "edge_finish":[
+        {"key":"0", "value":"Yes"},
+        {"key":"1", "value":"No"}
+      ],
+       "milling":[
+        {"key":"0", "value":"Yes"},
+        {"key":"1", "value":"No"}
+      ]   
+  }
+}

@@ -1,0 +1,59 @@
+<div id="leftSidebar">
+  <div class="sideArrow">
+    <img src="../assets/img/left-arrow.png" alt="left-arrow">
+    <img src="../assets/img/right-arrow.png" style="display: none;" alt="right-arrow">
+  </div>
+  <div class="leftSideWrapper makeItEqual-inner">
+    <div class="SearchWrapper clearfix ">
+      <div class="col-1">
+        <div class="form-group" id="custom-search-input">
+          <input type="text" class="search-query form-control" placeholder="Talbert" />
+          <button class="btn" type="button">
+<span class="glyphicon glyphicon-search"></span>
+</button>
+        </div>
+      </div>
+      <div class="col-2">
+        <span class="date-range"><a href="javascript:void(0);">[Date Range]</a></span>
+      </div>
+    </div>
+    <div class="DateRangeBox clearfix">
+      <div class="commonFormHldr input-daterange" id="datepicker">
+        <div class="form-group">
+          <label class="label-col">Start Date</label>
+          <div class="frm-box-col">
+            <div class="col-box-2"><input type="text" class="form-control" name="start"></div>
+            <div class="col-box-1"><span class="calendar-icon"><img src="../assets/img/cal-icon.png" alt="Calender" /></span></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="label-col">End Date</label>
+          <div class="frm-box-col">
+            <div class="col-box-2"><input type="text" class="form-control" name="end"></div>
+            <div class="col-box-1"><span class="calendar-icon"><img src="../assets/img/cal-icon.png" alt="Calender" /></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ListWrapper clearfix table-responsive">
+      <table class="table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Est#</th>
+            <th>Customer</th>
+            <th>Total</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let estimateData of estimateDatas; let i = index">
+            <td>{{estimateData.est}}</td>
+            <td>{{estimateData.customer}}</td>
+            <td>${{estimateData.total}}</td>
+            <td>{{estimateData.date}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

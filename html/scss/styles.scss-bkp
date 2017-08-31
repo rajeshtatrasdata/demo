@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
+@import "_reset.scss";
+@import "_variable.scss";
+@import "_mixins.scss";
+@import "_buttons.scss";
+
+html{height:100%;}
+.form-control:focus{border-color: $green-normal;}
+body{
+  font: 100% $roboto;
+  color: $light-grey;  
+}
+h1{font-size:36px; font-family:$roboto; color: $black; font-weight:$bold;}
+h2{font-size:32px; font-family:$roboto; color: $light-black; font-weight:$regular;}
+h3{font-size:26px; font-family:$roboto; color: $light-grey; font-weight:$regular;}
+h4{font-size:24px; font-family:$roboto; color: $light-grey; font-weight:$regular;}
+h5{font-size:18px; font-family:$roboto; color: $light-grey; font-weight:$bold;}
+h6{font-size:14px; font-family:$roboto-condense; color: $light-grey; font-weight:$regular;}
+/* For common class */
+.TopHeadOrnage{border-top:15px solid $orange-normal;}.TopHeadGreen{border-top:15px solid $green-normal;}.TopHeadBlack{border-top:15px solid $black-normal;}.TopHeadGrey{border-top:15px solid $grey-normal;}
+.borderTan{border:1px solid $tan-normal;}
+.noPadding{padding-left:0px; padding-right: 0px;}.noMargin{margin-left:0; margin-right: 0;}
+.form-control{height: 40px; border-color:#d6d6d6; color:$light-black; font-family: $roboto; font-weight: $regular;}
+.table-striped>tbody>tr:nth-child(odd)>td{background:$table-odd;}
+/* Styling radio button */
+.radio {
+  display: inline-block;
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    + .radio-label {
+      &:before {
+        content: '';
+        background: $radio-bg-color;
+        border-radius: 100%;
+        border: 1px solid darken($radio-bg-color, 25%);
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        top: -1px;
+        margin-right: 1em; 
+        vertical-align: top;
+        cursor: pointer;
+        text-align: center;
+        transition: all 250ms ease;
+      }
+    }
+    &:checked {
+      + .radio-label {
+        &:before {
+          background-color: $orange-normal;
+          box-shadow: inset 0 0 0 4px $radio-bg-color;
+        }
+      }
+    }
+    &:focus {
+      + .radio-label {
+        &:before {
+          outline: none;
+          border-color: $orange-normal;
+        }
+      }
+    }
+    &:disabled {
+      + .radio-label {
+        &:before {
+          box-shadow: inset 0 0 0 4px $radio-bg-color;
+          border-color: darken($radio-bg-color, 25%);
+          background: darken($radio-bg-color, 25%);
+        }
+      }
+    }
+    + .radio-label {
+      &:empty {
+        &:before {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+// Basic control styles for Checkbox
+.control{
+  display: block; position: relative; padding-left: 30px; margin-bottom: 10px; margin-top:10px; cursor: pointer; font-size: 16px;
+  // Hide default browser input
+  input{position: absolute;  z-index: -1;  opacity: 0;}   
+}   
+// Custom control
+.control__indicator{ position: absolute; top: -1px; left: 0; height: 20px; width: 20px; background: #e6e6e6; @include border-radius(2px);}
+// Checked
+.control input:checked ~ .control__indicator { background: $orange-normal;}
+.control input:checked ~ .control__indicator:after { display: block;}
+.control--checkbox .control__indicator:after { left: 8px; top: 5px; width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg);}
+.control__indicator:after { content: '';  position: absolute;  display: none;}
+
+/* For Header */
+.header-top{
+    background:$header-bg; width: 100%; float: left; height: 80px; min-height: 80px; padding-top: 30px; position: fixed; z-index: 9999;
+    .navbar-header-wrapper{
+      .navbar-toggle{background-color: $green-normal;} 	
+      .icon-bar{background-color: $white;}
+     }
+    }
+.logoHldr{
+       position: relative;
+       a {text-decoration: none;}
+       &:hover{text-decoration: none;}
+       .brand{width: 96px; float: left;}
+       .brandTxt{margin-left:96px; padding-left:15px; padding-top: 15px; font-family: $roboto-condense; font-size: $size-20; font-weight: $regular; text-transform: $upper; color:$white;}
+       }
+.navigationWrapper{   
+    float:right;
+    .IconsHldr{
+          display: inline-block;
+          li{display: inline-block;}
+          li:nth-child(1){
+              margin-top:5px;padding-right: 10px;
+              a{
+               img{margin-bottom: 3px;}   
+              }
+          }
+          li:nth-child(2){
+              margin-top:5px;padding-right: 15px;
+              a{
+               img{margin-bottom: 3px;}   
+              }
+          }
+          li:nth-child(3){padding-right: 5px; margin-top:8px;}
+       }   
+       .navHldr{
+           display: inline-block;
+       }   
+}   
+/* End For Header */  
+
+/* Start Layout structure */
+.MainHldr{width: 100%; float:left; padding-top: 18px; padding-bottom: 18px; top:110px; position: relative;}
+.nav-md .main-collapse.body .left_col{
+    min-height: 100%; width: 24%; border:1px solid $green-normal; border-right:15px solid $green-normal; position: relative; padding: 0; display: -ms-flexbox;  display: flex; z-index: 1; @include transition(1s);
+   .sideArrow{
+       position: absolute; right:-30px; top:35px; width: 15px; height: 75px; background: $green-normal; cursor: pointer; @include border-top-right-radius(3px); @include border-bottom-right-radius(3px);
+       &:hover{background: $green-hover;}
+       img{padding-top:30px; padding-left:3px;}
+   } 
+   
+}
+.nav-md .main-collapse.body .middle_col{
+    margin-left: 24%; @include transition(1s); padding-left:10px;
+}
+
+.nav-sm .main-collapse.body .left_col{
+    min-height: 100%; width: 15px; border:1px solid $green-normal; height: 1000px; border-right:15px solid $green-normal; position: relative; padding: 0; display: -ms-flexbox;  display: flex; z-index: 1; @include transition(1s);
+   .sideArrow{
+       position: absolute; right:-30px; top:35px; width: 15px; height: 75px; background: $green-normal; cursor: pointer; @include border-top-right-radius(3px); @include border-bottom-right-radius(3px);
+       &:hover{background: $green-hover;}
+       img{padding-top:30px;}
+   }  
+}
+.nav-sm .main-collapse.body .middle_col{
+    margin-left: 25px; height: 1000px; @include transition(1s);
+}
+/* End layout structure */
+/*Start for form holder*/
+.FormHldrBox{padding: 20px; overflow: hidden;}
+.commonFormHldr{
+    width:100%; float:left; display:block;
+    h4{color: $green-normal; line-height: 24px; font-weight: $bold; text-transform: $upper; margin-bottom: 20px;}
+    .form-group{
+         width:100%; float:left;
+         .btnWrapper{
+            .save-btn{background: url('../img/save-icon.png'); background-repeat:no-repeat; width: 32px; height: 32px; background-position: 0 0; display: inline-block;} 
+            .save-btn:hover{background-position: 0px 100%;}
+         }
+        .label-col{ width:25%; float: left; display: block; line-height:40px; text-align: $right; margin-right:2%; font-family: $roboto-condense; font-size: 14px; font-weight: $bold; color:$grey-normal; text-transform: $upper; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;}
+        .frm-box-col{
+            width:73%; float:left;
+            .col-box-1{
+                width: 38%; float: left; margin-right: 2%;
+                .calendar-icon{line-height: 40px; padding-left: 10px;}
+            }
+            .col-box-2{width: 60%; float: left;}
+            .common-box{width:100%; float:left; margin-top:15px;}
+            .short-box{width: 85px;}
+        }
+    }
+}
+.commonFormHldr .comments{min-height: 200px;}
+.commonFormHldr .mid-comments{min-height: 100px;}
+/*Search Component*/
+.nav-sm .leftSideWrapper{
+	.SearchWrapper{display: none;}
+	.ListWrapper{display: none;}
+        .commonFormHldr{display: none;}
+}
+.leftSideWrapper{
+    width:100%; float:right; padding:10px; overflow: hidden;
+    .SearchWrapper{width: 100%; float: left; height: 80px;}
+}
+#custom-search-input{
+     padding: 0; margin-top:15px; margin-bottom: 20px; position: relative;
+    .search-query{@include border-radius(20px); border-color: $green-normal; position: relative; padding-left: 38px;}
+    button{
+        border: 0; background: none;  padding: 2px 5px; margin-top: 0px; position: absolute; left: 15px; top:12px; margin-bottom: 0; @include border-radius(3px); color: $light-grey;
+        span.glyphicon.glyphicon-search{position:absolute; left:0;}
+    }
+}
+
+.ListWrapper{
+	table{
+		width: 100%; border-collapse: collapse;
+		thead tr th{padding: 8px; color: $white; border-right: 1px solid $white; background: #c3bebe; text-align: $center;}
+		tbody tr td{padding: 8px; color: $black-data; text-align: $center;}
+	}
+}
+.ListingData{
+    table{
+        tr{
+            td{
+                span.glyphicon.glyphicon-trash{color: $light-grey; cursor: pointer;}
+                span.glyphicon.glyphicon-trash:hover{color: $orange-normal;}
+            }
+        }
+    }
+}
+
+
+.middle_col{
+	.TopHead{
+		padding:30px 28px; background:$BoxWrapper-bg; min-height: 115px;
+		.leftHeading{
+                        min-height:30px; position: relative;
+			h2{position: absolute; top:50%; transform: translate(0, -50%); color:$black-data; font-family: $roboto; font-weight: $light; line-height: 28px;}
+		}
+	}
+}
+
+/* For Login */
+.LoginBoxWrapper{
+       width:360px; margin:7% auto;
+      .logo{background: url('../img/logo.png'); background-repeat: no-repeat; width: 96px; height:83px; margin: 0 auto;}
+       h6{text-align: center; margin-bottom: 15px; font-weight: $regular; text-transform: $upper;}        
+       .login-block{
+           padding: 20px; margin:0 auto; border:1px solid $green-active; @include border-radius(10px); border-top:5px solid $green-normal;
+           h6{text-align: center; text-transform: $upper; margin-bottom: 20px;}
+           button{
+                 width: 100%; height: 40px; background: $green-normal;  box-sizing: border-box; border-radius: 5px; border: 1px solid $green-normal; color: $white; font-weight: bold; text-transform: $upper; font-size: 14px; outline: none; cursor: pointer;
+                 &:hover{background: $green-hover;}
+              }
+          .has-feedback .form-control-feedback {top:0}  
+          .input .form-control:focus{border-color: $green-normal;}
+    }
+}
+/* End Login */
+@media (min-width: 768px){
+	.right-nav {
+            float: left; margin: 0; margin-top:6px; background:$green-normal; @include border-radius (4px);
+            li{
+                float: left; position: relative; display: inline-block; border-right: 1px solid $black-data; height:40px;
+                &:last-child{border-right: none; }
+                a{display: block; position: relative; padding: 10px 23px; color:$white; text-decoration: none;}
+                &:hover{background:$green-hover;}                
+            }
+             
+        }
+
+}
+@media screen and(min-width:1366px){
+    .container{width: 1250px;}
+    .container-fluid{padding-left:60px; padding-right: 60px;}
+}
+
+@media screen and(max-width:1300px){
+.logoHldr .brandTxt{font-size: 16px;}
+.table > tbody > tr > td,table > thead > tr > th{font-size: 14px; padding:6px;}
+}
+
+@media screen and(max-width:479px){
+    .LoginBoxWrapper{width: 100%;}
+}

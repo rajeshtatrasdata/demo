@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Talbert</title>
+          <link rel="stylesheet" href="css/datepicker.css"> 
+	  <link rel="Stylesheet" href="css/bootstrap.min.css" />
+          <link rel="Stylesheet" href="css/styles.css" />
+          <link rel="Stylesheet" href="css/dropzone.css" />
+   </head>
+	
+   <body class="nav-md">
+       
+       <header>
+           <nav class="header-top  navbar navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header navbar-header-wrapper" role="navigation">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>                        
+                </button>
+                  <div class="logoHldr">
+                      <a href="index.html">  
+                       <span class="brand"><img src="img/logo.png" alt="Talbert" /></span>
+                       <div class="brandTxt">Talbert Architectural Panels & Doors</div>
+                      </a> 
+                  </div> 
+              </div>
+              <div class="collapse navbar-collapse noPadding navbar-collapse">  
+                  <div class="navigationWrapper"> 
+                    <ul class="IconsHldr">
+                         <li><a href="inner.html"></a></li> 
+                         <li><a href="quote-preview.html"></a></li> 
+                         <li><a href="#"><img src="img/collapse.png" alt="" /></a></li>  
+                    </ul> 
+                    <ul class="right-nav navbar-right navHldr">
+                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="inner.html">Estimate Dashboard</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="quote-preview.html">Quote Preview</a></li>
+                                <li><a href="doors.html">Doors Order Entry</a></li>
+                                <li><a href="material-list.html">Material List</a></li>
+                                <li><a href="product-manager.html">Product Manager</a></li>
+                                <li><a href="vendor-manager.html">Vendor Manager</a></li>
+                                <li><a href="customer-manager.html">Customer Manager</a></li>
+                                <li><a href="vendor-manager-history.html">Vendor Manager History</a></li>
+                            </ul>
+                         </li>
+                         <li><a href="#">Mike Talbert</a></li>
+                         <li><a href="login.html"><span class="lock-icon"></span> Logout</a></li>
+                    </ul>
+                 </div>
+              </div>
+            </div>
+          </nav>
+        </header>
+       
+       <section class="MainHldr">
+           <div class="container-fluid main-collapse body">
+                   <div class="main_container">
+                       
+                        <div class="col-md-3 left_col makeItEqual-outer">
+                          <div id="leftSidebar">  
+                            <div class="sideArrow">
+                                <img src="img/left-arrow.png" alt="left-arrow">
+                                <img src="img/right-arrow.png" style="display: none;" alt="right-arrow">
+                            </div>
+                            <div class="leftSideWrapper makeItEqual-inner">
+                                <div class="SearchWrapper clearfix ">
+                                    <div class="col-1">
+                                        <div class="form-group" id="custom-search-input">
+                                            <input type="text" class="search-query form-control" placeholder="Talbert" />                                       
+                                                <button class="btn" type="button">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                </button>
+                                        </div>
+                                    </div>  
+                                    <div class="col-2">
+                                        <span class="date-range"><a href="#">[Date Range]</a></span>
+                                    </div>
+                                 </div>
+                                <div class="DateRangeBox clearfix">
+                                    <div class="commonFormHldr input-daterange" id="datepicker">
+                                        <div class="form-group">
+                                            <label class="label-col">Start Date</label>
+                                            <div class="frm-box-col">
+                                                <div class="col-box-2"><input type="text" class="form-control" name="start"></div>
+                                                <div class="col-box-1"><span class="calendar-icon"><img src="img/cal-icon.png" alt="Calender" /></span></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="label-col">End Date</label>
+                                            <div class="frm-box-col">
+                                              <div class="col-box-2"><input type="text" class="form-control" name="end"></div>
+                                              <div class="col-box-1"><span class="calendar-icon"><img src="img/cal-icon.png" alt="Calender" /></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ListWrapper clearfix table-responsive">
+                                    <table>
+                                      <thead>
+                                        <tr>
+                                          <th>Est#</th>
+                                          <th>Customer</th>
+                                          <th>Total</th>
+                                          <th>Date</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                </div>
+                           </div>  
+                         </div>   
+                       </div>
+                       
+                       <div class="middle_col">
+                           <div class="row noMargin">
+                               <div class="col-md-12 noPadding colHeight"> 
+                                    <div class="TopHead TopHeadOrnage">
+                                       <div class="row">
+                                         <div class="col-md-9">
+                                           <div class="leftHeading">
+                                             <h2>Materials</h2>
+                                           </div>
+                                         </div>
+                                         <div class="col-md-3">
+                                            <div class="RightHeading pull-right">
+                                               <ul class="rIcons">
+                                                    <li><a href="#"><span class="print"></span></a></li>                                                    
+                                                </ul>
+                                           </div>
+                                         </div>
+                                       </div>
+                                    </div>
+                                    <div class="FormHldrBox FormHldrBoxScoll borderTan col-height-1">
+                                        <div class="row">                                          
+                                            <div class="col-md-12">
+                                                <div class="materialsWrapper">
+                                                    <div class="rowline">
+                                                        <div class="col-1"> 
+                                                            <div class="summary-details">                                                                       
+                                                                <div class="rowData"><span>Item 1-</span><p>48 Qtr Recon Walnut 3/4” plywood</p></div>
+                                                                <div class="rowData"><p>48 sheets 11/16” 8 ply DF</p></div> 
+                                                                <div class="rowData"><p>1800 sqft Qtr Recon Walnut</p></div> 
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <div class="orderFrom">
+                                                                <ul>
+                                                                    <li>Ordered from Rosewood 2.24.17</li> 
+                                                                    <li>From Stock - Log 28763</li> 
+                                                                </ul> 
+                                                            </div> 
+                                                        </div>    
+                                                    </div>  
+                                                    <div class="rowline">
+                                                        <div class="col-1">
+                                                            <div class="summary-details">
+                                                                <div class="rowData"><span>Item 2-</span><p>48 Qtr White Maple 3/4” plywood</p></div>
+                                                                <div class="rowData"><p>48 sheets 11/16” 8 ply DF</p></div> 
+                                                                <div class="rowData"><p>1800 sqft White Maple</p></div> 
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <div class="orderFrom">
+                                                                <ul>
+                                                                    <li>Recieved from Rosewood 2.28.17</li> 
+                                                                    <li>From Stock - Log 45897</li> 
+                                                                </ul> 
+                                                            </div>
+                                                        </div>    
+                                                    </div>  
+                                                    <div class="rowline">
+                                                        <div class="col-1"> 
+                                                            <div class="summary-details">                                                                       
+                                                                <div class="rowData"><span>Item 3-</span><p>48 Qtr Recon Walnut 3/4” plywood</p></div>
+                                                                <div class="rowData"><p>48 sheets 11/16” 8 ply DF</p></div> 
+                                                                <div class="rowData"><p>1800 sqft Qtr Recon Walnut</p></div> 
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <div class="orderFrom">
+                                                                <ul>
+                                                                    <li>Ordered from Rosewood 2.24.17</li> 
+                                                                    <li>From Stock - Log 28763</li> 
+                                                                </ul> 
+                                                            </div> 
+                                                        </div>    
+                                                    </div>  
+                                                    <div class="rowline">
+                                                        <div class="col-1">
+                                                            <div class="summary-details">
+                                                                <div class="rowData"><span>Item 4-</span><p>48 Qtr White Maple 3/4” plywood</p></div>
+                                                                <div class="rowData"><p>48 sheets 11/16” 8 ply DF</p></div> 
+                                                                <div class="rowData"><p>1800 sqft White Maple</p></div> 
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <div class="orderFrom">
+                                                                <ul>
+                                                                    <li>Recieved from Rosewood 2.28.17</li> 
+                                                                    <li>From Stock - Log 45897</li> 
+                                                                </ul> 
+                                                            </div>
+                                                        </div>    
+                                                    </div>
+                                                    <div class="rowline">
+                                                        <div class="col-1"> 
+                                                            <div class="summary-details">                                                                       
+                                                                <div class="rowData"><span>Item 5-</span><p>48 Qtr Recon Walnut 3/4” plywood</p></div>
+                                                                <div class="rowData"><p>48 sheets 11/16” 8 ply DF</p></div> 
+                                                                <div class="rowData"><p>1800 sqft Qtr Recon Walnut</p></div> 
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <div class="orderFrom">
+                                                                <ul>
+                                                                    <li>Ordered from Rosewood 2.24.17</li> 
+                                                                    <li>From Stock - Log 28763</li> 
+                                                                </ul> 
+                                                            </div> 
+                                                        </div>    
+                                                    </div>  
+                                                    <div class="rowline">
+                                                        <div class="col-1">
+                                                            <div class="summary-details">
+                                                                <div class="rowData"><span>Item 6-</span><p>48 Qtr White Maple 3/4” plywood</p></div>
+                                                                <div class="rowData"><p>48 sheets 11/16” 8 ply DF</p></div> 
+                                                                <div class="rowData"><p>1800 sqft White Maple</p></div> 
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <div class="orderFrom">
+                                                                <ul>
+                                                                    <li>Recieved from Rosewood 2.28.17</li> 
+                                                                    <li>From Stock - Log 45897</li> 
+                                                                </ul> 
+                                                            </div>
+                                                        </div>    
+                                                    </div>
+                                                </div><!-- End Wrapper -->
+                                            </div>
+                                        </div>        
+                                    </div>
+                               </div>    
+                           </div>     
+                       </div>
+                       
+                   </div>
+           </div>
+       </section>
+       <script src="js/jquery-3.2.1.min.js"></script>
+       <script src="js/bootstrap-datepicker.js"></script>
+       <script src="js/bootstrap.min.js"></script>
+       <script src="js/dropzone.js"></script>
+       <script src="js/custom-script.js"></script>
+        
+        <script type="text/javascript">
+            // When the document is ready
+            $(document).ready(function () {
+                
+                $('.input-daterange').datepicker({
+                    todayBtn: "linked"
+                });
+            
+            });
+        </script>
+   </body>
+</html>

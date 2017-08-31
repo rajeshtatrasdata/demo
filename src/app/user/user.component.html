@@ -1,0 +1,303 @@
+<app-header></app-header>
+
+ <section class="MainHldr">
+     <div class="container-fluid main-collapse body">
+             <div class="main_container">
+                 
+                  <div class="col-md-3 left_col colHeight">
+                      <div class="sideArrow">
+                          <img src="../assets/img/left-arrow.png" alt="left-arrow">
+                          <img src="../assets/img/right-arrow.png" style="display: none;" alt="right-arrow">
+                      </div>
+                      <div class="leftSideWrapper">
+                          <div class="SearchWrapper form-inline">
+                              <div class="form-group pull-right" id="custom-search-input">
+                                  <input type="text" class="search-query form-control" placeholder="Talbert" />                                       
+                                      <button class="btn" type="button">
+                                          <span class=" glyphicon glyphicon-search"></span>
+                                      </button>
+                              </div>
+                          </div>
+                          <div class="ListWrapper table-responsive">
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>Mike Cheley</td>
+                                    <td>mcheley@graphtek</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                          </div>
+                     </div>     
+                 </div>
+                 
+                 <div class="middle_col">
+                     <div class="row noMargin">
+                         <div class="col-md-8 noPadding colHeight"> 
+
+                          <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+                              <div class="TopHead TopHeadOrnage">
+                                 <div class="row">
+                                   <div class="col-md-10">
+                                     <div class="leftHeading">
+                                       <h2>Manage Users</h2>
+                                     </div>
+                                   </div> 
+                                   <div class="col-md-2">
+                                          <div class="RightHeading pull-right">
+                                              <ul class="rIcons">
+                                                  <!-- <li><a href="javascript:void(0);"><span class="saveItems"></span></a></li> -->
+                                                  <li><input class="saveItems"  type="submit" [disabled]="!userForm.valid" value="" /></li>
+                                              </ul>
+                                          </div>
+                                  </div>                                       
+                                 </div>
+                              </div>
+                              <div class="FormHldrBox FormHldrBoxScoll borderTan col-height-1">
+                                  <div class="row">
+                                      <div class="col-md-12 col-xs-12">
+                                          <div class="commonFormHldr"><!-- Start Form holder Wrapper -->    
+                                            <h4 class="text-left">Add User</h4>
+                                                     <h6 class="success-message"> {{success}}</h6>
+                                                      <div class="form-group"
+                                                      [ngClass]="{
+                                                          'has-danger': userForm.controls.company.invalid && userForm.controls.company.dirty, 
+                                                          'has-success': userForm.controls.company.valid && userForm.controls.company.dirty 
+                                                        }">
+                                                          <label class="label-col">Company</label>
+                                                          <div class="frm-box-col">
+                                                              <input type="text" class="form-control" formControlName="company" id="company">
+                                                              <div class="warning-block" *ngIf="!userForm.controls['company'].valid && userForm.controls['company'].touched">Please enter company name</div>                                                                    
+                                                          </div>
+                                                      </div>
+                                                      <!-- <div class="form-group">                                                            
+                                                          <label class="label-col">Company</label>
+                                                          <div class="frm-box-col">
+                                                              <input type="text" class="form-control" formControlName='company'>
+                                                              <div class="warning-block" *ngIf="!userForm.controls['company'].valid && userForm.controls['company'].touched">Please enter company name</div>                                                                    
+                                                          </div>
+                                                      </div> -->
+
+                                                      <div class="form-group"
+                                                      [ngClass]="{
+                                                        'has-danger': userForm.controls.firstname.invalid && userForm.controls.firstname.dirty, 
+                                                        'has-success': userForm.controls.firstname.valid && userForm.controls.firstname.dirty 
+                                                      }"
+                                                      >
+                                                          <label class="label-col">First Name</label>
+                                                          <div class="frm-box-col">
+                                                              <input type="text" class="form-control" formControlName="firstname">
+                                                              <div class="warning-block" *ngIf="!userForm.controls['firstname'].valid && userForm.controls['firstname'].touched">Please enter your first name</div>
+                                                            
+                                                          </div>
+                                                      </div>
+
+                                                       <div class="form-group"
+                                                       [ngClass]="{
+                                                        'has-danger': userForm.controls.lastname.invalid && userForm.controls.lastname.dirty, 
+                                                        'has-success': userForm.controls.lastname.valid && userForm.controls.lastname.dirty 
+                                                        }"
+                                                       >
+                                                          <label class="label-col">Last Name</label>
+                                                          <div class="frm-box-col">
+                                                              <input type="text" class="form-control" formControlName="lastname">
+                                                              <div class="warning-block" *ngIf="!userForm.controls['lastname'].valid && userForm.controls['lastname'].touched">Please enter your last name</div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="form-group"
+                                                      [ngClass]="{
+                                                        'has-danger': userForm.controls.email.invalid && userForm.controls.email.dirty, 
+                                                        'has-success': userForm.controls.email.valid && userForm.controls.email.dirty 
+                                                        }"
+                                                      >
+                                                              <label class="label-col">E-Mail Address</label>
+                                                              <div class="frm-box-col">
+                                                                  <input type="text" class="form-control" formControlName="email">
+                                                                  <div class="warning-block" *ngIf="!userForm.controls['email'].valid && userForm.controls['email'].touched">Please enter your E-mail address</div>
+                                                              </div>
+                                                      </div>
+                                                      <div class="form-group"
+                                                      [ngClass]="{
+                                                        'has-danger': userForm.controls.phone.invalid && userForm.controls.phone.dirty, 
+                                                        'has-success': userForm.controls.phone.valid && userForm.controls.phone.dirty 
+                                                        }"
+                                                      >
+                                                              <label class="label-col">Phone Number</label>
+                                                              <div class="frm-box-col">
+                                                                  <input type="text" class="form-control" formControlName="phone" pattern="[0-9]*" minlength="10"  maxlength="10" />
+                                                                 
+                                                                  <div class="warning-block" *ngIf="!userForm.controls['phone'].valid && userForm.controls['phone'].touched">Please enter correct phone Number</div>
+                                                                  <!-- <div class="warning-block" [hidden]="!userForm.controls['phone'].hasError('minlength')">Mobile should be 10 digit</div> -->
+                                                                  <!-- <div class="warning-block" [hidden]="!userForm.controls['phone'].hasError('required')">Mobile is required</div> -->
+                                                                  <div class="warning-block" [hidden]="!userForm.controls['phone'].hasError('pattern')">Phone number should be only numbers</div>
+                                                                </div>
+                                                      </div>
+                                                      <div class="form-group"
+                                                      [ngClass]="{
+                                                        'has-danger': userForm.controls.userlogname.invalid && userForm.controls.userlogname.dirty, 
+                                                        'has-success': userForm.controls.userlogname.valid && userForm.controls.userlogname.dirty 
+                                                        }"
+                                                      >
+                                                          <label class="label-col">Login</label>
+                                                          <div class="frm-box-col">
+                                                              <input type="text" class="form-control" formControlName="userlogname">
+                                                              <div class="warning-block" *ngIf="!userForm.controls['userlogname'].valid && userForm.controls['userlogname'].touched">Please enter login name</div>
+                                                              <label class="control control--checkbox">Login Is Disabled
+                                                                  <input type="checkbox" formControlName="status">
+                                                                  <div class="control__indicator"></div>
+                                                                  <div class="warning-block" *ngIf="!userForm.controls['status'].valid && userForm.controls['status'].touched" value="0">Please Checked status</div>
+                                                              </label>
+                                                          </div>
+                                                      </div>
+                                                      <div class="form-group"
+                                                      [ngClass]="{
+                                                        'has-danger': userForm.controls.password.invalid && userForm.controls.password.dirty, 
+                                                        'has-success': userForm.controls.password.valid && userForm.controls.password.dirty 
+                                                        }"
+                                                      >
+                                                          <label class="label-col">New Password</label>
+                                                          <div class="frm-box-col">
+                                                              <input type="password" class="form-control" formControlName="password">
+                                                              <div class="warning-block" *ngIf="!userForm.controls['password'].valid && userForm.controls['password'].touched">Please enter your password</div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="form-group"
+                                                      [ngClass]="{
+                                                        'has-danger': userForm.controls.repeatpassword.invalid && userForm.controls.repeatpassword.dirty, 
+                                                        'has-success': userForm.controls.repeatpassword.valid && userForm.controls.repeatpassword.dirty 
+                                                        }"
+                                                      >
+                                                          <label class="label-col">Repeat New Password</label>
+                                                          <div class="frm-box-col">
+                                                              <input type="password" class="form-control" formControlName="repeatpassword">
+                                                              <div class="warning-block" *ngIf="!userForm.controls['repeatpassword'].valid && userForm.controls['repeatpassword'].touched">Please enter your repeat password</div>
+                                                              <div class="warning-block" *ngIf="pwdMismatch">Password Mismatch</div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="form-group"
+                                                      [ngClass]="{
+                                                        'has-danger': userForm.controls.address.invalid && userForm.controls.address.dirty, 
+                                                        'has-success': userForm.controls.address.valid && userForm.controls.address.dirty 
+                                                        }"
+                                                      >
+                                                          <label class="label-col">Address</label>
+                                                          <div class="frm-box-col">
+                                                              <input type="text" class="form-control" formControlName="address">
+                                                              <div class="warning-block" *ngIf="!userForm.controls['address'].valid && userForm.controls['address'].touched">Please enter your address</div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="form-group"
+                                                      [ngClass]="{
+                                                        'has-danger': userForm.controls.country.invalid && userForm.controls.country.dirty, 
+                                                        'has-success': userForm.controls.country.valid && userForm.controls.country.dirty 
+                                                        }"
+                                                      >
+                                                          <label class="label-col">Country</label>
+                                                          {{countrydatas?.data?.countries}}
+                                                          <div class="frm-box-col">
+                                                              <select class="form-control" formControlName="country">
+                                                                  <option  *ngFor = "let countrydata of countrydatas?.data?.countries; let i=index">{{countrydata.country_name}}</option>
+                                                              </select>
+                                                              <i class="bottomArrowstyle"></i>
+                                                              <div class="warning-block" *ngIf="!userForm.controls['address'].valid && userForm.controls['address'].touched">Please Select Your Country Name</div>
+                                                          </div>
+                                                      </div>                                                            
+                                                      <div class="form-group"
+                                                      [ngClass]="{
+                                                        'has-danger': userForm.controls.state.invalid && userForm.controls.state.dirty, 
+                                                        'has-success': userForm.controls.state.valid && userForm.controls.state.dirty 
+                                                        }"
+                                                      >
+                                                          <label class="label-col">State</label>
+                                                          <div class="frm-box-col">
+                                                              <select class="form-control" formControlName="state">
+                                                                  <option>Delhi</option>
+                                                              </select>
+                                                              <i class="bottomArrowstyle"></i>
+                                                              <div class="warning-block" *ngIf="!userForm.controls['state'].valid && userForm.controls['state'].touched">Please Select Your State Name</div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="form-group"
+                                                      [ngClass]="{
+                                                        'has-danger': userForm.controls.state.invalid && userForm.controls.state.dirty, 
+                                                        'has-success': userForm.controls.state.valid && userForm.controls.state.dirty 
+                                                        }"
+                                                      >
+                                                              <label class="label-col">City</label>
+                                                              <div class="frm-box-col">
+                                                                    <input type="text" class="form-control" formControlName="city">
+                                                                  <!-- <select class="form-control" formControlName="city">
+                                                                      <option>New Delhi</option>
+                                                                  </select>
+                                                                  <i class="bottomArrowstyle"></i> -->
+                                                                  <div class="warning-block" *ngIf="!userForm.controls['city'].valid && userForm.controls['city'].touched">Please Enter Your City Name</div>
+                                                              </div>
+                                                          </div>
+                                                      <div class="form-group addroles"
+                                                      [ngClass]="{
+                                                        'has-danger': userForm.controls.roles.invalid && userForm.controls.roles.dirty, 
+                                                        'has-success': userForm.controls.roles.valid && userForm.controls.roles.dirty 
+                                                        }"
+                                                      >
+                                                          <label class="label-col">Additional Roles</label>
+                                                          <div class="frm-box-col">
+                                                              <select class="form-control" formControlName="roles">
+                                                                  <option>BlogEditor</option>
+                                                                  <option>CMSAdministrator</option>
+                                                                  <option>CMSUser</option>
+                                                                  <option>CalendarEditor</option>
+                                                                  <option>Customer</option>
+                                                                  <option>OpenAccount</option>
+                                                                  <option>PageEditor</option>
+                                                                  <option>PersonEditor</option>
+                                                              </select>
+                                                              <i class="bottomArrowstyle"></i>
+                                                              <div class="warning-block" *ngIf="!userForm.controls['roles'].valid && userForm.controls['roles'].touched">Please Select Atleast One Role</div>
+                                                          </div>
+                                                      </div>
+                                                 
+                                          </div>
+                                      </div>
+                                   </div>  
+                              </div><!-- End Form holder Wrapper -->
+                          </form>  
+                         </div>  
+                         
+                         
+
+                         <div class="col-md-4 noPadRight colHeight"> 
+                              <div class="TopHead TopHeadOrnage">
+                                 <div class="row">
+                                      <div class="col-md-12">
+                                      <div class="leftHeading">
+                                          <h2>User Activity</h2>
+                                      </div>
+                                      </div>
+                                 </div>
+                              </div>
+                              <div class="FormHldrBox FormHldrBoxScoll borderTan col-height-1">
+                                  <div class="row">
+                                      <div class="col-md-12 col-xs-12">
+                                          <div class="commonFormHldr"><!-- Start Form holder Wrapper --> 
+                                               Coming Soon!
+                                          </div>
+                                      </div>
+                                   </div>  
+                              </div><!-- End Form holder Wrapper -->
+                         </div> 
+
+
+
+                     </div>     
+                 </div>
+                 
+             </div>
+     </div>
+ </section>
+ 

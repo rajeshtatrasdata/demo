@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Talbert</title>
+          <link rel="stylesheet" href="css/datepicker.css"> 
+	  <link rel="Stylesheet" href="css/bootstrap.min.css" />
+          <link rel="Stylesheet" href="css/styles.css" />
+          <link rel="Stylesheet" href="css/dropzone.css" />
+          <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+          <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+   </head>
+	
+   <body class="nav-md">
+       
+       <header>
+           <nav class="header-top  navbar navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header navbar-header-wrapper" role="navigation">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>                        
+                </button>
+                  <div class="logoHldr">
+                      <a href="index.html">  
+                       <span class="brand"><img src="img/logo.png" alt="Talbert" /></span>
+                       <div class="brandTxt">Talbert Architectural Panels & Doors</div>
+                      </a> 
+                  </div> 
+              </div>
+              <div class="collapse navbar-collapse noPadding navbar-collapse">  
+                  <div class="navigationWrapper"> 
+                    <ul class="IconsHldr">
+                         <li><a href="inner.html"></a></li> 
+                         <li><a href="quote-preview.html"></a></li> 
+                         <li><a href="#"><img src="img/collapse.png" alt="" /></a></li>  
+                    </ul> 
+                    <ul class="right-nav navbar-right navHldr">
+                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="inner.html">Estimate Dashboard</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="quote-preview.html">Quote Preview</a></li>
+                                <li><a href="doors.html">Doors Order Entry</a></li>
+                                <li><a href="material-list.html">Material List</a></li>
+                                <li><a href="product-manager.html">Product Manager</a></li>
+                                <li><a href="vendor-manager.html">Vendor Manager</a></li>
+                                <li><a href="customer-manager.html">Customer Manager</a></li>
+                                <li><a href="vendor-manager-history.html">Vendor Manager History</a></li>
+                            </ul>
+                         </li>
+                         <li><a href="#">Mike Talbert</a></li>
+                         <li><a href="login.html"><span class="lock-icon"></span> Logout</a></li>
+                    </ul>
+                 </div>
+              </div>
+            </div>
+          </nav>
+        </header>	
+       
+       <section class="MainHldr">
+           <div class="container-fluid main-collapse body">
+                   <div class="main_container">
+                       
+                        <div class="col-md-3 left_col makeItEqual-outer">
+                          <div id="leftSidebar">  
+                            <div class="sideArrow">
+                                <img src="img/left-arrow.png" alt="left-arrow">
+                                <img src="img/right-arrow.png" style="display: none;" alt="right-arrow">
+                            </div>
+                            <div class="leftSideWrapper makeItEqual-inner">
+                                <div class="SearchWrapper clearfix ">
+                                    <div class="col-1">
+                                        <div class="form-group" id="custom-search-input">
+                                            <input type="text" class="search-query form-control" placeholder="Talbert" />                                       
+                                                <button class="btn" type="button">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                </button>
+                                        </div>
+                                    </div>  
+                                    <div class="col-2">
+                                        <span class="date-range"><a href="#">[Date Range]</a></span>
+                                    </div>
+                                 </div>
+                                <div class="DateRangeBox clearfix">
+                                    <div class="commonFormHldr input-daterange" id="datepicker">
+                                        <div class="form-group">
+                                            <label class="label-col">Start Date</label>
+                                            <div class="frm-box-col">
+                                                <div class="col-box-2"><input type="text" class="form-control" name="start"></div>
+                                                <div class="col-box-1"><span class="calendar-icon"><img src="img/cal-icon.png" alt="Calender" /></span></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="label-col">End Date</label>
+                                            <div class="frm-box-col">
+                                              <div class="col-box-2"><input type="text" class="form-control" name="end"></div>
+                                              <div class="col-box-1"><span class="calendar-icon"><img src="img/cal-icon.png" alt="Calender" /></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ListWrapper clearfix table-responsive">
+                                    <table>
+                                      <thead>
+                                        <tr>
+                                          <th>Est#</th>
+                                          <th>Customer</th>
+                                          <th>Total</th>
+                                          <th>Date</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr><tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                         <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12890</td>
+                                          <td>Riverwood</td>
+                                          <td>$45,789</td>
+                                          <td>01|26|17</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                </div>
+                           </div>  
+                         </div>   
+                       </div>
+                       
+                       <div class="middle_col">
+                           <div class="row noMargin">
+                              <div class="col-md-3 col-md-2-5 noPadding colHeight"> 
+                                    <div class="TopHead TopHeadOrnage">
+                                       <div class="row">
+                                         <div class="col-md-10">
+                                           <div class="leftHeading">
+                                             <h2>Riverwood Cabinetry</h2>
+                                           </div>
+                                         </div>
+                                        <div class="col-md-2">
+                                            <div class="RightHeading pull-right">
+                                                <ul class="rIcons">
+                                                    <li><a href="#"><span class="saveItems"></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>  
+                                       </div>
+                                    </div>
+                                    <div class="FormHldrBox FormHldrBoxScoll borderTan col-height-1">
+                                        <div class="ListingData table-responsive">
+                                            <table class="table table-striped">
+                                                <tbody>
+                                                  <tr>
+                                                    <td>1</td>
+                                                    <td>48</td>
+                                                    <td>Qtr Recon Walnut<br>48x96" Plywood</td>
+                                                    <td><span class="price">$3.879</span></td>
+                                                    <td><span class="glyphicon glyphicon-trash"></span></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>2</td>
+                                                    <td>24</td>
+                                                    <td>Maple<br>48x96 Veneer</td>
+                                                    <td><span class="price">$3.879</span></td>
+                                                    <td><span class="glyphicon glyphicon-trash"></span></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>3</td>
+                                                    <td>24</td>
+                                                    <td>Birch Door<br>36x84-1/2x2-1/4</td>
+                                                    <td><span class="price">$3.879</span></td>
+                                                    <td><span class="glyphicon glyphicon-trash"></span></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>4</td>
+                                                    <td>48</td>
+                                                    <td>Qtr Recon Walnut<br>48x96" Plywood</td>
+                                                    <td><span class="price">$3.879</span></td>
+                                                    <td><span class="glyphicon glyphicon-trash"></span></td>
+                                                  </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            <span class="pull-right" style="cursor:pointer;"><a class="add-items" href="javascript:void(0);"></a></span>
+                                                            <div class="lineItems">
+                                                             <ul>
+                                                                 <li><a href="veneer.html">Veneer</a></li>
+                                                                 <li><a href="index.html">Plywood Panels</a></li>
+                                                                 <li><a href="doors.html">Doors</a></li>
+                                                             </ul>
+                                                         </div>
+                                                        </td> 
+                                                    </tr> 
+                                                </tfoot>
+                                              </table>
+                                        </div>                                               
+                                    </div>
+                               </div>
+                                                              <div class="col-md-6 col-md-6-5 colHeight"> 
+                                    <div class="TopHead TopHeadOrnage">
+                                       <div class="row">
+                                         <div class="col-md-8">
+                                           <div class="leftHeading">
+                                             <h2>Veneer</h2>
+                                           </div>
+                                         </div>
+                                         <div class="col-md-4">
+                                            <div class="RightHeading pull-right">
+                                                <ul class="rIcons">
+                                                    <li><a href="#"><span class="copy"></span></a></li>
+                                                    <li><a href="#"><span class="save-item"></span></a></li>
+                                                </ul>
+                                           </div>
+                                         </div>
+                                       </div>
+                                    </div>
+                                    <div class="FormHldrBox borderTan col-height-1">
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="commonFormHldr"><!-- Start Form holder Wrapper -->
+                                                    <h4>Veneer</h4>
+                                                    <div class="form-group">
+                                                        <label class="label-col">Quantity</label>
+                                                        <div class="frm-box-col">
+                                                            <div class="col-box-1"><input type="text" class="form-control" value="" /></div>   
+                                                        </div>
+                                                    </div> 
+                                                    <div class="form-group">
+                                                        <label class="label-col">Species</label>
+                                                        <div class="frm-box-col">
+                                                            <select class="form-control">
+                                                                <option>Walnut</option>
+                                                            </select>
+                                                            <i class="bottomArrowstyle"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="label-col">Grain Pattern</label>
+                                                        <div class="frm-box-col">
+                                                                <select class="form-control">
+                                                                    <option>Plain Sliced</option>
+                                                                    <option>Rotary</option>
+                                                                    <option>Rift</option>
+                                                                    <option>Quartered</option>
+                                                                    <option>Burl</option>
+                                                                </select>
+                                                               <i class="bottomArrowstyle"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="label-col">Pattern</label>
+                                                        <div class="frm-box-col">
+                                                                <select class="form-control">
+                                                                    <option>Book</option>
+                                                                    <option>Slip</option>
+                                                                    <option>Running</option>
+                                                                    <option>Balance</option>
+                                                                    <option>Center/Balance</option>
+                                                                    <option>Random</option>
+                                                                    <option>Butcher Block</option>
+                                                                    <option>Sketch face</option>
+                                                                    <option>Sunburst</option>
+                                                                    <option>Diamond</option>
+                                                                    <option>Reverse Diamond</option>
+                                                                    <option>Box Matrix</option>
+                                                                    <option>Reverse Box Matrix</option>
+                                                                    <option>Chevron</option>
+                                                                </select>
+                                                                <i class="bottomArrowstyle"></i>
+                                                        </div>
+                                                     </div>
+                                                    <div class="form-group">
+                                                        <label class="label-col">Grain Direction</label>
+                                                        <div class="frm-box-col">
+                                                                <select class="form-control">
+                                                                    <option>Horizontal</option>
+                                                                    <option>Vertical</option>
+                                                                    <option>Sketch Face</option>
+                                                                </select>
+                                                                <i class="bottomArrowstyle"></i>
+                                                        </div>
+                                                     </div>
+                                                    <div class="form-group">
+                                                        <label class="label-col">Grade</label>
+                                                        <div class="frm-box-col">
+                                                                <select class="form-control">
+                                                                    <option>B-Production</option>
+                                                                    <option>AB-Good</option>
+                                                                    <option>A-Better</option>
+                                                                    <option>AA-Best</option>
+                                                                </select>
+                                                                <i class="bottomArrowstyle"></i>
+                                                        </div>
+                                                     </div>
+                                                    <div class="form-group">
+                                                        <label class="label-col">Thickness</label>
+                                                        <div class="frm-box-col">
+                                                            <div class="col-box-1">
+                                                                <select class="form-control">
+                                                                    <option>1/18”</option>
+                                                                    <option>2 MIL</option>
+                                                                    <option>3 MIL</option>
+                                                                    <option>4.5 MIL</option>
+                                                                    <option>10 MIL</option>
+                                                                    <option>1/40th</option>
+                                                                </select>
+                                                                <i class="bottomArrowstyle"></i>
+                                                            </div>    
+                                                        </div>
+                                                     </div>
+                                                     <div class="form-group">
+                                                        <label class="label-col">Width</label>
+                                                        <div class="frm-box-col">
+                                                            <div class="col-box-1">
+                                                                <select class="form-control">
+                                                                    <option>48.5"</option>
+                                                                </select>
+                                                                <i class="bottomArrowstyle"></i>
+                                                            </div>   
+                                                            <div class="col-box-2">
+                                                                <div class="frm-box-col">
+                                                                  <label class="control control--checkbox">Net Size
+                                                                    <input type="checkbox">
+                                                                    <div class="control__indicator"></div>
+                                                                  </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                     </div>
+                                                     <div class="form-group">
+                                                        <label class="label-col">Length</label>
+                                                        <div class="frm-box-col">
+                                                            <div class="col-box-1">
+                                                                <select class="form-control">
+                                                                    <option>120.75"</option>
+                                                                </select>
+                                                                <i class="bottomArrowstyle"></i>
+                                                            </div> 
+                                                        </div>
+                                                     </div>
+                                                    <div class="form-group">
+                                                        <label class="label-col">Core</label>
+                                                        <div class="frm-box-col">
+                                                                <select class="form-control">
+                                                                    <option>Particle Board</option>
+                                                                    <option>MDF</option>
+                                                                    <option>Medex</option>
+                                                                    <option>Exteria</option>
+                                                                    <option>PUMA FR VC</option>
+                                                                    <option>Baltic Birch</option>
+                                                                    <option>Veneer Core</option>
+                                                                </select>
+                                                                <i class="bottomArrowstyle"></i>
+                                                        </div>
+                                                     </div>
+                                                     <div class="form-group">
+                                                        <label class="label-col">Backer</label>
+                                                        <div class="frm-box-col">
+                                                                <select class="form-control">
+                                                                    <option>Match Front</option>
+                                                                </select>
+                                                                <i class="bottomArrowstyle"></i>
+                                                            <div class="common-box">
+                                                                <label class="control control--checkbox">Flex &amp; Sanded
+                                                                  <input type="checkbox" checked="checked">
+                                                                  <div class="control__indicator"></div>
+                                                                </label>
+                                                                <label class="control control--checkbox">Sequenced
+                                                                  <input type="checkbox">
+                                                                  <div class="control__indicator"></div>
+                                                                </label>
+                                                             </div>
+                                                        </div>
+                                                     </div>
+                                                    <div class="form-group">
+                                                         <label class="label-col">Lumber Fee</label>
+                                                         <div class="frm-box-col">
+                                                             <div class="col-box-1">
+                                                                 <select class="form-control">
+                                                                     <option>2%</option>
+                                                                 </select>
+                                                                 <i class="bottomArrowstyle"></i>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                </div> <!-- End Form holder Wrapper -->
+                                            </div>
+                                            
+                                             <div class="col-md-6 col-xs-12">
+                                                <div class="commonFormHldr"><!-- Start Form holder Wrapper -->                                                   
+                                                    <div class="form-group">
+                                                         <label class="label-col">Comments</label>
+                                                         <div class="frm-box-col">
+                                                            <textarea class="form-control comments"></textarea>
+                                                         </div>
+                                                     </div>
+                                                     <div class="form-group">
+                                                         <label class="label-col">&nbsp;</label>
+                                                         <div class="frm-box-col">
+                                                              <div id="dropzone">
+                                                                    <form action="/upload" class="dropzone needsclick dz-clickable" id="demo-upload">
+                                                                        <div class="dz-message needsclick">
+                                                                            <div class="msg-label"><img src="img/upload-icon.png" /><span>Select or drop Files to upload</span></div>
+                                                                        </div>
+                                                                   </form>
+                                                                </div>
+                                                                <div class="listItems">
+                                                                    <ul>
+                                                                        <li><a href="#"><img src="img/pdf.png" alt="pdf" /></a></li>
+                                                                        <li><a href="#"><img src="img/xlss.png" alt="xlss" /></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                         </div>
+                                                     </div>
+                                                </div> <!-- End Form holder Wrapper -->    
+                                            </div> 
+                                       </div>        
+                                    </div>
+                               </div> 
+                                <div class="col-md-3 col-md-2-5 noPadding colHeight">
+                                   <div class="TopHead TopHeadOrange">
+                                       <div class="row">
+                                         <div class="col-md-12">
+                                           <div class="leftHeading">
+                                             <h2>Calculator</h2>
+                                           </div>
+                                         </div>
+                                       </div>
+                                    </div>
+                                   <div class="FormHldrBox borderTan col-height-3">
+                                       <div class="CalculatorWraper">
+                                          <div class="TopClc">
+                                               <div class="heading common">Customer Mark-up:</div>
+                                               <div class="EditBox common"><input type="text" value="20" class="form-control short-box" /></div>
+                                               <span class="percent">%</span>
+                                           </div>
+                                           <div class="clearfix table-responsive">
+                                                <table class="clTable">
+                                                    <tbody>
+<!--                                                    <tr>
+                                                       <td colspan="3"><div class="heading common">Customer Mark-up:</div></td>  
+                                                       <td colspan="2"><div class="EditBox TopCal common"><span class="txtBox"><input type="text" value="20" class="form-control short-box" /></span><span class="percent">%</span></div></td>
+                                                    </tr>-->
+                                                    <tr>
+                                                        <td><div class="heading common">Veneer:</div></td>
+                                                        <td><div class="EditBox common">$3.50</div></td>
+                                                        <td><div class="unit common">SF</div></td>
+                                                        <td><div class="yield common">1.5</div></td>
+                                                        <td><div class="sumprice common">$5.25</div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><div class="heading common">Core:</div></td>
+                                                        <td><div class="EditBox common">$1.0</div></td>
+                                                        <td><div class="unit common">SF</div></td>
+                                                        <td><div class="yield common">1.5</div></td>
+                                                        <td><div class="sumprice common">$2.25</div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><div class="heading common">Backer:</div></td>
+                                                        <td><div class="EditBox common">$3.50</div></td>
+                                                        <td><div class="unit common">SF</div></td>
+                                                        <td><div class="yield common">1.2</div></td>
+                                                        <td><div class="sumprice common">$4.20</div></td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td><div class="heading common">Finish:</div></td>
+                                                        <td><div class="EditBox common"><span class="lblname">$3.50</span><input type="text" class="form-control short-box pricebx" /></div></td>
+                                                        <td><div class="unit common">SF</div></td>
+                                                        <td><div class="yield common">1.0</div></td>
+                                                        <td><div class="sumprice common">$3.50</div></td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td><div class="heading common">Edge-Int:</div></td>
+                                                        <td><div class="EditBox common">$1.70</div></td>
+                                                        <td><div class="unit common">LF</div></td>
+                                                        <td><div class="yield common"><span class="lblname">$1.4</span><input type="text" class="form-control short-box pricebx" /></div></td>
+                                                        <td><div class="sumprice common">$2.38</div></td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td><div class="heading common">Edge-V:</div></td>
+                                                        <td><div class="EditBox common">$1.05</div></td>
+                                                        <td><div class="unit common">LF</div></td>
+                                                        <td><div class="yield common">1.0</div></td>
+                                                        <td><div class="sumprice common">$1.05</div></td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td><div class="heading common">Milling:</div></td>
+                                                        <td><div class="EditBox common">$21.75</div></td>
+                                                        <td><div class="unit common">PC</div></td>
+                                                        <td><div class="yield common">1.5</div></td>
+                                                        <td><div class="sumprice common">$21.75</div></td>
+                                                    </tr>
+                                                   </tbody> 
+                                                </table>
+                                            </div>
+                                            <div class="TotalCalWrapper clearfix">                                               
+                                                <div class="totalCal">
+                                                    <div class="wrapper"> 
+                                                        <label class="title">Machine Setup:</label>
+                                                        <div class="TxtBox"><input type="text" class="form-control" value="" placeholder="$350.00"></div>
+                                                    </div> 
+                                                    <div class="wrapper"> 
+                                                        <label class="title">Machine Tooling:</label>
+                                                        <div class="TxtBox"><input type="text" class="form-control" value="" placeholder="$50.00"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="totalCal lastBox">
+                                                      <div class="wrapper"> 
+                                                           <label class="title">Pre -Finish Setup:</label>
+                                                           <div class="TxtBox">-0-</div>
+                                                       </div> 
+                                                       <div class="wrapper"> 
+                                                           <label class="title">Color Match:</label>
+                                                           <div class="TxtBox">-0-</div>
+                                                       </div>
+                                                </div> 
+                                                <div class="finalPrice">
+                                                     <label class="title">Pre -Finish Setup:</label>
+                                                     <div class="TotalPrice">$221.75</div>
+                                                </div>
+                                            </div>    
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>     
+                       </div>
+                       
+                   </div>
+           </div>
+       </section>
+       <script src="js/jquery-3.2.1.min.js"></script>  
+       <script src="js/jquery.slimscroll.min.js"></script>
+       <script src="js/bootstrap-datepicker.js"></script>
+       <script src="js/bootstrap.min.js"></script>
+       <script src="js/dropzone.js"></script>       
+       <script src="js/custom-script.js"></script>  
+   </body>
+</html>

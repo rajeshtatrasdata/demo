@@ -1,0 +1,1693 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
+@import "_reset.scss";
+@import "_variable.scss";
+@import "_mixins.scss";
+@import "_buttons.scss";
+
+html{height:100%;}
+body{
+    font: 100% $roboto;
+    color: $light-grey;  
+}
+h1{font-size:36px; font-family:$roboto; color: $black; font-weight:$bold;}
+h2{font-size:32px; font-family:$roboto; color: $light-black; font-weight:$regular;}
+h3{font-size:26px; font-family:$roboto; color: $light-grey; font-weight:$regular;}
+h4{font-size:24px; font-family:$roboto; color: $light-grey; font-weight:$regular;}
+h5{font-size:18px; font-family:$roboto; color: $light-grey; font-weight:$bold;}
+h6{font-size:14px; font-family:$roboto-condense; color: $light-grey; font-weight:$regular;}
+/* For common class */
+.TopHeadOrnage,.TopHeadOrange{border-top:15px solid $orange-normal;}.TopHeadGreen{border-top:15px solid $green-normal;}.TopHeadBlack{border-top:15px solid $black-normal;}.TopHeadGrey{border-top:15px solid $grey-normal;}
+.borderTan{border:1px solid $tan-normal;}
+.tan{background-color:$saphire;}.orange{background-color:$orange-normal;}.green{background-color:$green-normal;}.green-active{background-color:$green-active;} .grey{background-color:$grey-hover;} .black{background-color:$grey-normal;}
+.edtxtbox{padding:2px 4px; outline: 0; display: inline-block; border-color: #d6d6d6; color: #525252; font-family: "Roboto", sans-serif; font-weight: 400; font-size: 14px; width: 100%; @include border-radius(4px); @include transition(.15); @include box-shadow(inset 0, 1px, 1px, rgba(0, 0, 0, .075)); border:1px solid #cccccc; height:28px;}
+.noMargin{margin-left:0; margin-right: 0;}
+.slimScrollRail{border:1px solid $black;}
+.ListWrapper.table-responsive{min-height: .01%; border:none; overflow-x: auto;}
+.form-control{padding:6px 8px; height: 35px; display: inline-block; border-color:#d6d6d6; color:$light-black; font-family: $roboto; font-weight: $regular; font-size: 16px;}
+.form-control:focus{border-color: $green-normal; background-color: $green-normal; color:$white;}
+select.form-control:focus{background: $green-normal; color: $white;}
+input::-webkit-input-placeholder {color:$white;}input:focus::-webkit-input-placeholder {color:$white;}/* Firefox < 19 */input:-moz-placeholder {color:$white}input:focus:-moz-placeholder {color:$white;}/* Firefox > 19 */input::-moz-placeholder {color:$white;}input:focus::-moz-placeholder {color:$white;}/* Internet Explorer 10 */input:-ms-input-placeholder {color:$white;}input:focus:-ms-input-placeholder {color:$white;}
+select.form-control:focus + .bottomArrowstyle{background-position: 0px -6.5px;}
+.table-striped>tbody>tr:nth-child(odd)>td{background:$table-odd;}
+a,a:focus,a:active,a:target{outline: none;}
+select{position: relative; @include appearance(none);}
+select.form-control{padding-right: 19px;}
+select + .bottomArrowstyle {position: relative; float: right; margin-top: -20px; margin-right: 6px; pointer-events: none; background: url("../img/bottom-arrow.png"); background-repeat: no-repeat; width: 10px; height: 6.5px; background-position: 0 0; display: inline-block; padding-right: 10px;}
+select:active,select:focus i.bottomArrowstyle{background-position: 0px -6.5px;}
+.clearfix{clear: both;}.formWrapper{padding-top:15px; padding-bottom: 15px;}
+table{width: 100%; margin-bottom: 15px; border-collapse: collapse; border-spacing: 0;}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th { background-color: $grey-normal; color:$white;}
+table>thead>tr>th, table>thead>tr>td, table>tbody>tr>td, table>tr>td,table>tr>th, table>tfoot>tr>td{padding: 5px;}
+.table-heading{
+    thead{
+        tr{
+            th{
+                background: $table-heading-color; color: $white; border-right: 1px solid $white;
+                &:last-child{border-right: none;}
+            }
+        }
+    }
+}
+.btn{background: $green-normal; color:$white; text-transform: $upper; font-size: 14px;}
+.btn:hover{background: $green-hover; color:$black-hover;}
+.btn:active, .btn:focus{background:$green-active; color:$white; outline: none;}
+.btn-small{width: 140px; height: 40px;}.btn-medium{width: 220px; height: 50px;}.btn-large{width: 280px; height: 60px;}
+.btn-orange{background: $orange-normal; color:$white; text-transform: $upper; font-size: 14px;}
+.btn-orange:hover{background: $orange-hover; color:$black-hover;}
+.btn:active, .btn-orange:focus{background:$orange-active; color:$white; outline: none;}
+.dropzone .dz-preview.dz-error:hover .dz-error-message{display:none;}
+/* Styling radio button */
+.radio {
+    display: inline-block;
+    input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        + .radio-label {
+            &:before {
+                content: '';
+                background: $radio-bg-color;
+                border-radius: 100%;
+                border: 1px solid darken($radio-bg-color, 25%);
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                position: relative;
+                top: -1px;
+                margin-right: 10px; 
+                vertical-align: top;
+                cursor: pointer;
+                text-align: center;
+                transition: all 250ms ease;
+            }
+        }
+        &:checked {
+            + .radio-label {
+                &:before {
+                    background-color: $orange-normal;
+                    box-shadow: inset 0 0 0 4px $radio-bg-color;
+                }
+            }
+        }
+        &:focus {
+            + .radio-label {
+                &:before {
+                    outline: none;
+                    border-color: $orange-normal;
+                }
+            }
+        }
+        &:disabled {
+            + .radio-label {
+                &:before {
+                    box-shadow: inset 0 0 0 4px $radio-bg-color;
+                    border-color: darken($radio-bg-color, 25%);
+                    background: darken($radio-bg-color, 25%);
+                }
+            }
+        }
+        + .radio-label {
+            &:empty {
+                &:before {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
+
+// styling for Checkbox
+.control{
+    display: block; position: relative; padding-left: 30px; margin-bottom: 10px; margin-top:10px; cursor: pointer; font-size: 16px;
+    // Hide default browser input
+    input{position: absolute;  z-index: -1;  opacity: 0;}   
+}   
+// Custom control
+.control__indicator{ position: absolute; top: -1px; left: 0; height: 18px; width: 18px; border:1px solid $grey-normal; @include border-radius(3px);}
+// Checked
+.control input:checked ~ .control__indicator { background: $orange-normal; border:1px solid $grey-tbl-light;}
+.control input:checked ~ .control__indicator:after { display: block;}
+.control--checkbox .control__indicator:after { left: 7px; top: 3px; width: 4px; height: 8px; border: solid $white; border-width: 0 2px 2px 0; transform: rotate(45deg);}
+.control__indicator:after { content: '';  position: absolute;  display: none;}
+
+/* Start Layout structure */
+.MainHldr{
+    width: 100%; float:left; padding-top: 18px; padding-bottom: 30px; top:110px; position: relative;
+    .main_container{
+        position: relative;
+    }
+}
+.nav-md .main-collapse.body .left_col{
+    min-height: 100%; width: 0%; border:1px solid $green-normal; border-right:15px solid $green-normal; position: relative; padding: 0; display: block; z-index: 1; @include transition(0.5s);
+    .sideArrow{
+        position: absolute; right:-30px; top:25px; width: 15px; height: 75px; background: $green-normal; cursor: pointer; @include border-top-right-radius(3px); @include border-bottom-right-radius(3px);
+        &:hover{background: $green-hover;}
+        img{padding-top:30px; padding-left:3px;}
+    } 
+
+}
+.nav-md .main-collapse.body .middle_col{
+    @include transition(0.5s); padding-left:25px;
+}
+
+.nav-sm .main-collapse.body .left_col{
+    min-height: 100%; width: 15px; border:1px solid $green-normal; border-right:15px solid $green-normal; position: relative; padding: 0; display: block; z-index: 1; @include transition(0.5s);
+    .sideArrow{
+        position: absolute; right:-30px; top:25px; width: 15px; height: 75px; background: $green-normal; cursor: pointer; @include border-top-right-radius(3px); @include border-bottom-right-radius(3px);
+        &:hover{background: $green-hover;}
+        img{padding-top:30px; padding-left:2px;}
+    }  
+}
+.nav-sm .main-collapse.body .middle_col{
+    margin-left: 25px; @include transition(0.5s);
+}
+/* End layout structure */
+
+/* For Header */
+.header-top{
+    background:$header-bg; width: 100%; float: left; height: 80px; min-height: 80px; padding-top: 30px; z-index: 999999;
+    .navbar-header-wrapper{
+        .navbar-toggle{background-color: $green-normal;} 	
+        .icon-bar{background-color: $white;}
+    }
+}
+.logoHldr{
+    position: relative;
+    a {text-decoration: none;}
+    &:hover{text-decoration: none;}
+    .brand{
+        width: 96px; float: left;
+        img{width: 100%; height: 100%;}
+    }
+    .brandTxt{margin-left:96px; padding-left:15px; padding-top: 15px; font-family: $roboto-condense; font-size: $size-20; font-weight: $regular; text-transform: $upper; color:$white;}
+}
+.navigationWrapper{   
+    float:right;
+    .IconsHldr{
+        display: inline-block;
+        li{display: inline-block;}
+        li:nth-child(1){
+            margin-top:5px;padding-right: 10px;
+            a{
+                background: url("../img/sprite.png"); background-position: 0px 0px; background-repeat: no-repeat; width: 32px; height: 32px; display: inline-block; margin-bottom: 3px;   
+            }
+            a:hover{background-position: 0px -32px;}
+            a:active,a:focus{background-position: 0px 100%;}
+        }
+        li:nth-child(2){
+            margin-top:5px;padding-right: 15px;
+            a{
+                background: url("../img/sprite.png"); background-position: -160px 0px; background-repeat: no-repeat; width: 32px; height: 32px; display: inline-block; margin-bottom: 3px;   
+            }
+            a:hover{background-position: -160px -32px;}
+            a:active,a:focus{background-position: -160px 100%;}
+        }
+        li:nth-child(3){padding-right: 5px; margin-top:8px;}
+    }   
+    .navHldr{
+        display: inline-block;
+    }   
+}  
+.right-nav{
+    li{
+        a{
+            .lock-icon{
+                background: url("../img/lock.png") 0px 0px no-repeat; width: 11px; height: 15px; display: inline-block;
+            }  
+            &:hover .lock-icon{background-position: 0px 100%;} 
+        }
+    }
+}
+.right-nav li:hover .sub-menu {
+    z-index:1;
+    display: block;    
+}
+.right-nav{
+    .dropdown-menu {
+        width:100%; padding:10px 0;@include border-radius(4px); @include transition(1s); box-shadow:0px 2px 3px rgba(0,0,0,0.2); background:#585858;
+        &:before{content: ""; border-bottom: 15px solid #585858; border-right: 15px solid transparent; border-left: 15px solid transparent; position: absolute; top: -8px; left: 30px; z-index: 10;}
+        li{
+            display: block; float: none; border-right: none; padding: 0px;
+            a{
+                padding:5px 20px; display:block; background: #585858; @include border-radius(0px);
+                &:hover{background:$green-normal; color:$white; @include border-radius(0px);}
+            }
+        }
+        .current-item a{background:#3e3436;}
+    }  
+} 
+/* End For Header */  
+
+/*Start for form holder*/
+.FormHldrBox{padding: 20px; overflow: auto;}
+.commonFormHldr{
+    width:100%; float:left; display:block;
+    .vendor-product-list-data{padding-left: 15%; padding-top: 20px;}
+    h4{color: $green-normal; line-height: 24px; font-weight: $bold; text-transform: $upper; margin-bottom: 7px; margin-top: 7px; padding-left: 30%;}
+    .form-group{
+        width:100%; float:left; margin-bottom: 8px;
+        .label-col{ width:28%; float: left; display: block; line-height:35px; text-align: $right; margin-right:2%; font-family: $roboto-condense; font-size: 12px; font-weight: $bold; color:$grey-normal; text-transform: $upper; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;}
+        .frm-box-col{
+            width:70%; float:left; position: relative;
+            .col-box-1{
+                width: 38%; float: left; margin-right: 2%;
+                .calendar-icon{line-height: 40px; padding-left: 10px; margin-left:10px;}
+            }
+            .col-box-2{
+                width: 60%; float: left;
+            }
+            .common-box{
+                width:100%; float:left; margin-top:10px; position: relative;
+            }
+            .short-box{
+                width: 85px;
+            }
+            .attributeWrap{
+                width:85%; float: left;
+            }
+        }
+    }
+    .comments{min-height: 150px;}
+    .mid-comments{min-height: 100px;}
+    .dropzone{
+        border:2px dashed $green-normal; text-align: $center; @include border-radius(4px); min-height: 90px; margin-bottom: 20px;
+        .dz-message.needsclick{
+            .msg-label{
+                span{display: block;}
+            }
+        }
+    }
+}
+.AddMoreWrapper{
+    width: 100%; float: left; margin-top:15px; position: relative;
+    .col-1{
+        width: 90%; float: left; margin-bottom: 10px;
+        .sno{
+            width: 40px; padding-right: 5px; float: left; padding-top: 10px;
+        }
+        .txtbox{margin-left:40px;}
+    }
+
+    .addMore{
+        position: absolute; bottom:16px; right: 0;
+        i{
+            color: $green-normal; cursor: pointer;
+            &:hover{color:$green-hover}
+        }
+    }
+
+}
+/* After upload display list of pdf, xlss etc */
+.listItems{
+    ul{
+        padding-left:10px;
+        li{display: inline-block; float:left; padding-right: 10px;}
+    }
+}
+/* End Form Holder css */
+
+/* sidebar collapsable */
+.leftSideWrapper{
+    width:100%; float:right; overflow: hidden;
+    .SearchWrapper{
+        overflow: hidden; padding:20px; border-bottom: 2px solid $border-color;
+        .col-1{width:55%; margin-right: 5%; float: left; }
+        .col-2{width:40%; margin-right: 0%; float: left; line-height: 40px;}
+    }
+}
+/*Search Component*/
+#custom-search-input{
+    padding: 0; position: relative; margin-bottom: 0;
+    .search-query{@include border-radius(20px); border-color: $green-normal; position: relative; padding-left: 38px;}
+    button{
+        border: 0; background: none;  padding: 2px 5px; margin-top: 0px; position: absolute; left: 15px; top:12px; margin-bottom: 0; @include border-radius(3px); color: $light-grey;
+        span.glyphicon.glyphicon-search{position:absolute; left:0; top:-2px;}
+    }
+}
+/*end search component*/
+.DateRangeBox{
+    padding-top:15px; padding-bottom: 15px; border-bottom: 2px solid $border-color; display: none;
+    .commonFormHldr{
+        .form-group{
+            &:last-child{margin-bottom: 0;}
+        }
+    }
+}
+
+
+.ListWrapper{
+    margin-top:15px; margin-bottom: 15px; padding: 20px;
+    table{
+        width: 100%; border-collapse: collapse;
+        thead {
+            tr{
+                th{padding: 7px; color: $white; border-right: 1px solid $white; background: $table-heading-color; text-align: $center;}
+            } 
+        }                
+        tbody{
+            tr{
+                &:hover td{background-color: $grey-hover; color: $black; cursor: pointer;}  
+                td{
+                    padding: 5px; color: $black-data; text-align: $center;                          
+                }  
+            }
+        } 
+    }
+}
+.ListingData{
+    table{
+        tbody{
+            tr{
+                td{
+                    font-size:15px; 
+                    span.glyphicon.glyphicon-trash{color: $light-grey; cursor: pointer;}
+                    span.glyphicon.glyphicon-trash:hover{color: $orange-normal;}
+                }            
+            }
+        }
+        tfoot{
+            tr{
+                td{
+                    span {
+                        .add-items{
+                            position:relative; background: url("../img/sprite.png"); background-position: 0px 0px; width: 32px; height: 32px; background-repeat: no-repeat; display: inline-block;
+                            &:hover{background-position: 0px -32px;}
+                            &:active,&:focus{background-position: 0px 100%;}
+                        }
+                    }
+                }
+                .lineItems{
+                    width:150px; float: left; position: absolute; right: 65px; display: none;
+                    ul{
+                        border: 2px solid $grey-tbl-light; background:$white; padding:5px;
+                        li{
+                            display:block;
+                            a{
+                                padding:2px 0px; line-height: 1.3; display: block; color: $black-normal; text-decoration: none;
+                                &:hover{color:$green-normal;}
+                            }
+                        }                    
+                    }
+                }    
+            }
+
+        }
+    }
+}
+.quoteView{   
+    table{
+        tbody{
+            tr{
+                td.trash{  
+                    background:$white; border-top:0; border-bottom: 0; vertical-align: middle; padding-right: 0; width: 24px; visibility: hidden;
+                    span.glyphicon.glyphicon-trash{color: $light-grey; cursor: pointer;}
+                    span.glyphicon.glyphicon-trash:hover{color: $orange-normal;}                    
+                }            
+            }
+            tr:hover{
+                td.trash{  
+                  visibility: visible;        
+                }            
+            }
+
+        }
+    }
+}
+
+
+.confirmBoxWrapper {
+    display: none; position: fixed; z-index: 999999; padding-top: 100px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);
+     .modal-content {
+        position: relative; background-color: #fefefe; margin: auto; padding: 0; border: 1px solid #888; width: 30%; @include animation-name(animatetop); @include animation-duration(0.4s); 
+        .modal-header {
+              padding: 25px 15px;  background-color: $green-normal;@include border-top-right-radius(5px); @include border-top-left-radius(5px);
+             .closebtn {color: $white; float: right; font-size: 28px; font-weight: $bold; opacity: 1; margin-top: -15px;}            
+             .closebtn:hover,.closebtn:focus {color: #000; text-decoration: none; cursor: pointer;}
+        }
+        .modal-body {padding: 15px 15px;}
+        .modal-footer {
+            padding: 8px 15px; background-color: $white; margin-top: 0; color: $white; @include border-bottom-right-radius(5px); @include border-bottom-left-radius(5px);
+        }
+
+    }
+}
+/* Add Animation */
+@-webkit-keyframes animatetop { 
+    from {top:-300px; opacity:0} to {top:0; opacity:1}
+}
+@keyframes animatetop {
+    from {top:-300px; opacity:0} to {top:0; opacity:1}
+}
+
+
+.makeItEqual-inner{overflow-x:hidden;overflow-y: scroll; width: 100% !important;}
+/* end collapsable sidebar */
+.middle_col{
+    .TopHead{
+        padding:30px 28px; background:$BoxWrapper-bg; height: 105px;
+        .leftHeading{
+            min-height:30px; position: relative;
+            h2{position: absolute; top:50%; transform: translate(0, -50%); color:$black-data; font-family: $roboto; font-weight: $light; line-height: 28px; font-size: 26px;}
+        }
+    }
+    .TabTopHead{
+        padding:15px 28px 0px 28px; background:$BoxWrapper-bg; min-height: 105px;
+        .leftHeading{
+            min-height:30px; position: relative;
+            h2{position: absolute; top:50%; transform: translate(0, -50%); color:$black-data; font-family: $roboto; font-weight: $light; line-height: 28px; font-size: 26px;}
+        }
+    }
+}
+.navTab{
+    list-style: none; margin-top:15px;
+    li{
+        display:inline; margin-right: 10px;
+        a{
+            display: inline-block; padding: 5px 15px; border:1px solid $tan-normal; border-bottom: 0; color:$white; background: $green-normal; text-decoration: none; text-transform: uppercase;
+        }
+    }
+    li.active{
+        a{background: $white; border-bottom: 1px solid $white; margin-bottom: -1px; color: $green-normal; font-weight: $bold;}
+    }
+}
+/* css for icons */
+.rIcons{
+    li{
+        display: inline-block;  padding-right: 10px;
+        &:last-child{padding-right: 0px;}
+        a{
+            .add-items{
+                background: url("../img/sprite.png"); background-position: 0px 0px; width: 32px; height: 32px; background-repeat: no-repeat; display: inline-block;
+                &:hover{background-position: 0px -32px;}
+                &:active,&:focus{background-position: 0px 100%;}
+            }
+            .copy{
+                background: url("../img/sprite.png"); background-position: -32px 0px; width: 32px; height: 32px; background-repeat: no-repeat; display: inline-block;
+                &:hover{background-position: -32px -32px;}
+                &:active,&:focus{background-position: -32px 100%;}
+            }  
+            .save-item{
+                background: url("../img/sprite.png"); background-position: -64px 0px; width: 32px; height: 32px; background-repeat: no-repeat; display: inline-block;
+                &:hover{background-position: -64px -32px;}
+                &:active,&:focus{background-position: -64px 100%;}
+            }
+            .saveItems{
+                background: url("../img/sprite.png"); background-position: -64px 0px; width: 32px; height: 32px; background-repeat: no-repeat; display: inline-block;
+                &:hover{background-position: -64px -32px;}
+                &:active,&:focus{background-position: -64px 100%;}
+            }
+            .email{
+                background: url("../img/email-icon.png"); background-position: 0px 0px; width: 32px; height: 26px; background-repeat: no-repeat; display: inline-block;
+                &:hover{background-position: 0px -26px;}
+                &:active,&:focus{background-position: 0px 100%;}  
+            }
+            .approve{
+                background: url("../img/sprite.png"); background-position: -128px 0px; width: 32px; height: 32px; background-repeat: no-repeat; display: inline-block;
+                &:hover{background-position: -128px -32px;}
+                &:active,&:focus{background-position: -128px 100%;}
+            }
+            .print{
+                background: url("../img/sprite.png"); background-position: -96px 0px; width: 32px; height: 32px; background-repeat: no-repeat; display: inline-block;
+                &:hover{background-position: -96px -32px;}
+                &:active,&:focus{background-position: -96px 100%;}
+            }
+            .edit{
+                background: url("../img/edit-icon.png"); background-position: 0px 0px; width: 32px; height: 31px; background-repeat: no-repeat; display: inline-block;
+                &:hover{background-position: 0px -32px;}
+                &:active,&:focus{background-position: 0px 100%;}
+            }
+            .trash{
+                background: url("../img/trash-icon.png"); background-position: 0px 0px; width: 26px; height: 32px; background-repeat: no-repeat; display: inline-block;
+                &:hover{background-position: 0px -32px;}
+                &:active,&:focus{background-position: 0px 100%;}
+            }
+            .preview{
+                background: url("../img/sprite.png"); background-position: -192px 0px; width: 32px; height: 32px; background-repeat: no-repeat; display: inline-block;
+                &:hover{background-position: -192px -32px;}
+                &:active,&:focus{background-position: -192px 100%;}
+            }
+            .journal{
+                background: url("../img/sprites.png"); background-position: 0px 0px; width: 32px; height: 32px; background-repeat: no-repeat; display: inline-block;
+                &:hover{background-position: 0px -32px;}
+                &:active,&:focus{background-position: 0px 100%;}
+            }
+            .calendar{
+                background: url("../img/sprites.png"); background-position: -160px 0px; width: 32px; height: 32px; background-repeat: no-repeat; display: inline-block;
+                &:hover{background-position: -160px -32px;}
+                &:active,&:focus{background-position: -160px 100%;}
+            }
+        }
+    }
+}
+/* Css for grid page */
+.addressWrapper{
+    width: 100%; float: left; padding-bottom: 20px;
+    ul{
+        li{
+            display: inline-block; float:left; width: 30%; margin-right: 3.33%;
+            &:last-child{margin-right: 0;}
+            .Heading{
+                width:55px; height: 60px; padding-right: 5px; display: table; float: left;
+                h6{display: table-cell; vertical-align: middle; font-size: 14px; text-transform: $upper; font-family: $roboto-condense; color:$grey-tbl-light;}
+            }
+            .Address{
+                margin-left:55px; border-left:2px solid $green-normal; padding-left:10px; line-height: 1.3;
+                .name{color:$black; text-transform: $cap;}
+                span{display: block;}
+            }
+        }
+    }
+}
+.customeInfo{
+    width:100%; float:left; border-bottom:2px solid $grey-light; padding-bottom: 20px;
+    ul{
+        li{
+            display: inline-block; float: left; border-right: 2px solid $green-normal; padding-left:3px; padding-right: 3px; line-height:1.3;
+            .cinfo{
+                span{color:$black; font-weight: $regular; font-family:$roboto;}
+            }
+            &:first-child{padding-left: 0;}
+            &:last-child{padding-right: 0; border-right: none;}
+        }
+    }
+}
+.dataBoxHldr{
+    table{
+        thead{
+            tr{
+                th{color:$grey-tbl-light; font-family: $roboto-condense; font-weight: $bold; font-size: 14px; text-transform:$upper;} 
+                th.qty,th.pattern,th.grade,th.back,th.unitPrice,th.edge,th.total{min-width: 50px; text-align: $center;}
+                th.sno{min-width: 50px; text-align: $left;}
+                th.length,th.thickness,th.width{min-width: 50px; text-align: $center;}
+            }
+        }  
+        tbody{
+            tr{ 
+                td{font-size: 14px;}
+                td.qty,td.pattern,td.grade,td.back,td.thickness,td.unitPrice,td.edge,td.total{min-width: 50px; text-align: $center; text-transform: capitalize;}  
+                td.sno{min-width: 50px; text-align: $left;}
+                td.length,td.width,td.thickness{min-width: 80px; text-align: $center;}
+                td.species{
+                    text-align: left;
+                    .commnets-msg{font-style: italic; font-size: 14px; padding-top:2px;}
+                }
+            }
+        }
+    }
+}
+.TotalWrapperBox{
+    width:100%; float: left; padding-top: 20px;
+    .col-1{
+        width: 40%; float: left;
+        .comment-msg{
+            border-top:2px solid $table-heading-color; padding-top:5px;
+            strong{color:$black; font-size: 16px; font-weight: $bold; font-family: $roboto-condense;}
+        }
+    }
+    .col-2{
+        width: 60%; float: left;
+        table{
+            width:40%;float: right;
+            tr{
+                td{ 
+                    min-width: 100px;
+                    .common,.price{text-align: $right;}
+                    .Total{color:$black; font-size: 16px; font-weight: $bold; font-family: $roboto-condense;}
+                }
+            }
+        }
+    }
+}
+/*Css for materials page*/
+.materialsWrapper{
+    width:100%; float: left;
+    .rowline{
+        &:first-child{padding-top:0px;}
+        width:100%; float:left; display: block; padding:8px 0px; border-bottom: 1px solid $border-color;
+        .col-1{
+            width:55%; float:left;
+            .summary-details{
+                .rowData{
+                    &:first-child{padding-bottom: 15px;} 
+                    span{width: 10%; float: left;} 
+                    p{margin-left:10%; padding-left:5px;}
+                }
+            }
+
+        }
+        .col-2{
+            width:45%; float:left;
+            .orderFrom{
+                ul{
+                    padding-top:34px; 
+                    li{
+                        text-align: right;
+                    }
+                }
+            } 
+        }
+    }
+}   
+/*css for vendor manager page*/
+.vendor-manager{
+    table{
+        thead{
+            tr{
+                th.cost{text-align: $center; min-width: 60px;}  
+                th.per-unit{text-align: $center; min-width: 60px;} 
+                th.comments{text-align: $left; min-width: 100px;} 
+            }
+        }
+        tbody{
+            tr{
+                td.cost{text-align: $center; min-width: 60px;}
+                td.per-unit{text-align: $center; min-width: 60px;}
+                td.comments{text-align: $left; min-width: 100px;}
+            }
+        }
+    }
+}
+/*css for customer manager history page*/
+.table-heading-common{text-align: $center; min-width: 60px;}
+.customer-manager-history{
+    table{
+        thead{
+            tr{
+                th.date{@extend .table-heading-common}
+                th.po{@extend .table-heading-common}
+                th.ship-date{@extend .table-heading-common}
+            }
+        }
+        tbody{
+            tr{
+                td.date{@extend .table-heading-common}
+                td.po{@extend .table-heading-common} 
+                td.ship-date{@extend .table-heading-common}
+            }
+        }
+    }
+}
+/*css for product manager option page*/
+.product-manager-option{
+    table{
+        thead{
+            border-top:2px solid $border-color;
+            tr{
+                th{background: none; color:$light-grey; border-right: none;}  
+                th.chkbx{ 
+                    min-width:30px;
+                    .control{
+                        margin-top:0px; margin-bottom:5px; padding-left:5px; margin-left:0px;
+                    }
+                }
+                th.sku{text-align: $center; min-width: 60px;}
+                th.quality{text-align: $center; min-width: 60px;}
+            }
+        }
+        tbody{
+            tr{
+                td.chkbx{
+                    min-width:30px;
+                    .control{
+                        margin-top:0px; margin-bottom:5px; padding-left: 5px; margin-left:0px;
+                    }
+                }
+                td.sku{text-align: $center; min-width: 60px;}
+                td.quality{text-align: $center; min-width: 60px;}
+            }
+        }
+    }
+    .commoWrapper{
+        width:100%; float:left; margin-top: 15px;
+        h5{padding-left:10px; padding-bottom: 5px;}
+        .box{
+            width: 100%; float: left; display: block; margin-bottom: 10px; padding: 15px; border: 2px dashed $light-grey; @include border-radius(5px);
+            ul{
+                li{
+                    display:inline-block; float: left; margin-right: 10px; position: relative;
+                    a{
+                        background: url('../img/plywoodbg.png'); background-repeat: no-repeat; display:inline-block; background-position: center; width:73px; height: 73px; position: relative;
+                        span.opt-name{position: absolute; bottom: 5px; left:0; right:0; text-align: center; margin:0 auto; color:$white; text-transform: $upper; font-size:12px; padding: 0 5px; word-break: break-all;}
+                    &:hover{border:2px solid $orange-normal;}
+                    }
+                }
+            }
+        }
+        .dropzone{padding: 15px; text-align: left;}
+        .dropzone .dz-preview.dz-error:hover .dz-error-message{display: none;}
+        .dropzone .dz-preview .dz-image{border-radius: 0; width: 85px; height: 85px;}
+        .dropzone .dz-preview:hover .dz-image img{filter:blur(0); transform: none;}
+        .dropzone .dz-preview .dz-success-mark{display: none;}
+        .dropzone .dz-preview{margin:5px; min-height: 85px;}
+        .dropzone .dz-preview .dz-details .dz-size{display: none;}
+        .dropzone .dz-preview.dz-error .dz-error-mark{opacity: 0;}
+        .dropzone .dz-preview .dz-details .dz-filename{padding-top:35px;}
+        .dropzone .dz-preview .dz-details{opacity: 1;}
+        .dropzone .dz-preview .dz-details .dz-filename span{font-weight: 700;}
+        .dropzone .dz-preview .dz-details .dz-filename:hover span{border:0;}
+        .dropzone .dz-preview .dz-details .dz-filename span{background: transparent; color: $white; font-size: 12px; text-transform: $upper; border-radius: 0;}
+    }
+}
+
+/*css for searchbox common on Heading Top */
+.searchBox{
+    display: table;
+    .search-label{width:50px; float: left; line-height: 15px; display: table-cell; vertical-align: middle; line-height: 40px;}
+    .frm-box-col{padding-left:15px; margin-left:50px;}
+}
+
+/*code for email pop up */
+.EmailWrapperPopup{
+    .modal-dialog{width: 500px; margin:8% auto;}
+    .modal-content{border:2px solid $green-normal; padding:10px 20px;}
+    .modal-footer{border-top:none;}   
+}
+/*code for Approved pop up */
+.ApprovedPopup{
+    .modal-dialog{width: 500px; margin:8% auto;}
+    .modal-content{border:2px solid $green-normal; padding:10px 20px;}
+    .modal-footer{border-top:none; margin-top:0; padding-top:0px;}   
+}
+.modal-backdrop{background: $light-grey;}
+.modal-backdrop.in{opacity: 0.6;}
+/* For Login */
+.LoginBoxWrapper{
+    width:360px; margin:7% auto;
+    .logo{background: url('../img/logo.png'); background-repeat: no-repeat; width: 96px; height:83px; margin: 0 auto;}
+    h6{text-align: center; margin-bottom: 15px; font-weight: $regular; text-transform: $upper;}        
+    .login-block{
+        padding: 20px; margin:0 auto; border:1px solid $green-active; @include border-radius(10px); border-top:5px solid $green-normal;
+        h6{text-align: center; text-transform: $upper; margin-bottom: 20px;}
+        button{
+            width: 100%; height: 40px; background: $green-normal;  box-sizing: border-box; border-radius: 5px; border: 1px solid $green-normal; color: $white; font-weight: bold; text-transform: $upper; font-size: 14px; outline: none; cursor: pointer;
+            &:hover{background: $green-hover;}
+        }
+        .has-feedback .form-control-feedback {top:0}  
+        .input .form-control:focus{border-color: $green-normal;}
+    }
+}
+/* End Login */
+/* Calculator */
+.CalculatorWraper{
+    font-size: 14px;
+    .TopClc{
+        text-align: $right; display: table; float: right; padding-bottom:5px;
+        .heading{display:table-cell; padding-right: 10px;}
+        .EditBox{
+            display:table-cell; width: 20%;
+            input{text-align: right;}
+        }
+        .percent{display:table-cell;}
+    }
+    table.clTable{
+        width: 100%; margin-bottom: 15px; border-collapse: collapse; border-spacing: 0;   
+            tbody{
+                tr{
+                    td.common{line-height: 30px; vertical-align: middle;}
+                    td.unit{width:50px;}
+                    td.EditBox{
+                        width:60px;
+                        .pricebox{
+                             width:100%; float: left; display:block;
+                            .symbol{width:12px; float: left;}
+                            .lblname{width: calc(100% - 12px); float: left;}
+                            .edtxtbox{display: inline-block;}
+                        }
+                         padding:5px; font-family:$roboto;
+                        .sumprice{text-align: $right;}
+                    }
+                }
+            }
+    }
+    .TotalCalWrapper{
+        .totalCal{
+            padding-bottom: 20px;
+            .wrapper{
+                text-align:$right; padding-bottom: 15px;
+                .title{ display: inline-block; margin-right: 5%;}
+                .TxtBox{
+                    display: inline-block; width:30%;
+                    input{text-align:$right;}
+                }
+            }
+        } 
+        .lastBox{border-bottom:2px solid $border-color; padding-bottom: 0; margin-bottom: 15px;}
+        .finalPrice{
+            text-align:$right; 
+            .title{ display: inline-block; margin-right: 10px;}
+            .TotalPrice{display: inline-block; width:30%; font-weight: $bold;}
+        }
+    }
+
+}
+
+/* css for Daily schedule */
+.header-top-wrapper{
+    width: 100%; float: left; padding-bottom:25px;
+    .col-1{
+        width: 60%; float: left; margin-right: 2%;
+        .logo{
+            display: table;
+            .brand{
+                display: table-cell;
+                img{width: 100%; max-height: 83px;}
+            }
+            .logoTxt{
+                display: table-cell; vertical-align: middle; height: 83px; padding-left:10px;
+                h1{font-size: 22px; text-transform: $upper; color: $black-normal;}
+            }
+        }
+    }
+    .col-2{
+        width:38%; float:left;
+        .DateSchedule{
+            text-align:right;
+            h2{display: block;}
+            .datetime{display: block; font-size: 12px;}
+        } 
+    }
+}
+
+.department-status-button{
+    width:14px; height: 14px; display: block; margin-top:3px; @include border-radius(50%);
+}
+
+.DailySchduleHldr{
+    margin-top:30px; margin-bottom:30px;
+    .boxHldr{
+        width: 100%; float: left; display: inline-block;
+        ul.dailySchedule{
+            li{
+                 width:100%; float: left;
+                .main-row{
+                    .column-1{
+                        width: 60%; margin-right: 2%; height: 53px; float: left; display:block; border:1px solid $border-color; padding: 3px; margin-bottom: 5px;
+                    .col-1{
+                        width:50%; margin-right: 3%; float: left;  display: inline-block;
+                        .optionVal{
+                            float: left; display: inline-block; padding-right: 15px; padding-left: 10px; 
+                            .green-department{@extend .department-status-button; background: $green-normal;} 
+                            .black-department{@extend .department-status-button; background: $black-normal;} 
+                            .orange-department{@extend .department-status-button; background: $orange-normal;} 
+                            .tan-department{@extend .department-status-button; background: $tan-normal;}
+                            .white-department{@extend .department-status-button; background: $white; border:1px solid $black-normal;}
+                        }
+                        .TxtBox{display: inline-block; font-size: 18px;}
+                    }
+                    .col-2{
+                        width:47%; float: left; display: inline-block;  
+                        .statusHldr{
+                            text-align:right; float: right; display: table;
+                            .statusBox{
+                                height: 45px; width: 45px; float: left; margin-right:3px; border:1px solid $border-color; display: table-cell; vertical-align: middle;
+                                &:last-child{margin-right: 0;}
+                            }
+                        }
+                    }
+                    &:last-child{margin-bottom: 0px;}
+                    }   
+                    .column-2{
+                        width: 38%; float: left;
+                        .comments{
+                            border:1px solid $border-color; height: 53px; margin-bottom: 5px; padding: 3px;
+                        }
+                    }
+                } 
+            }
+        }
+    }
+}
+
+/*css for dashboard status*/
+.dashboard-inner-common-box{display:table-cell; vertical-align: middle; text-align: right;}
+ul.staus-hldr{
+    li{
+        display: block; 
+        a{
+            color:$black-normal; overflow: hidden; display: block; background: $white; margin-bottom: 5px; @include box-shadow(inset 0, 1px, 10px, rgba(0, 0, 0, 0.2));
+            .inner{
+                padding: 6px 10px; height: 53px; width:calc(100% - 53px); float:left; display: table; box-sizing: border-box; overflow: hidden;
+                .box1{
+                    width: 25%;  @extend .dashboard-inner-common-box; text-align:left; padding: 0px 5px; overflow: hidden; 
+                    h6{font-size: 16px; line-height: 18px; color: $black-normal; font-weight: 700;}
+                    .size{font-size: 14px;}                            
+                }
+
+                .box2{
+                    width: 35%;  @extend .dashboard-inner-common-box; padding: 0px 5px; overflow: hidden; 
+                    .heading{font-size: 14px; line-height: 14px; display: block; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 300px;}
+                    .sub-heading{display: block;}
+                } 
+                .box3{
+                    width: 20%; @extend .dashboard-inner-common-box; padding: 0px 5px; overflow: hidden; 
+                    .sub-heading{display: block;}
+                }
+                .box4{
+                    width: 20%; @extend .dashboard-inner-common-box; padding: 0px 5px; overflow: hidden; 
+                    .heading{display: block; font-size: 14px; line-height: 14px;}
+                    .sub-heading{display: block;}
+                }
+                &:hover{border:1px solid $orange-normal; border-right: 0;}
+            }
+            .statusBox{width: 53px; height: 53px; float: right;}                   
+        }                  
+    }
+}  
+.dashborad-hldr{
+    width:100%; float: left; border:1px solid $border-color; background:$black-normal; 
+    .col-1{
+        width: 55%; float: left; margin-top: 10px; margin-bottom: 10px;
+        .StatusListWrapper{padding: 0px 15px 0px 2px;}
+    }
+    .col-2{
+        width:45%; float: left; padding:10px 2px 5px 2px;
+        .wrapper{
+            border:1px solid $border-color; background: $white; width:100%; float:left; min-height: 550px;
+            .top-section{
+                border:2px solid $grey-hover; position:relative;
+                &:after, &:before {
+                    top: 100%;
+                    left: 35%;
+                    border: solid transparent;
+                    content: " ";
+                    height: 0;
+                    width: 0;
+                    position: absolute;
+                    pointer-events: none;
+                }
+
+                &:after {
+                    //border-color: rgba(136, 183, 213, 0);
+                    border-top-color: $white;
+                    border-width: 15px;
+                    margin-left: -15px;
+                }
+                &:before {
+                    //border-color: red;
+                    border-top-color: $border-color;
+                    border-width: 19px;
+                    margin-left: -19px;
+                }
+                ul.staus-hldr{
+                    li{
+                        position:relative;
+                        a{
+                            margin-bottom: 0; cursor: default; @include box-shadow(inset 0, 0px, 0px, rgba(0, 0, 0, 0));
+                            .inner{
+                                &:hover{border:0;}
+                            }
+                        }
+                    }
+                }
+            }
+            .bottom-section{
+                padding: 15px; width: 100%; float: left;  
+                .txt-wrapper{
+                    width: 100%; float: left;
+                    .box-1{
+                        width:33.33%; float: left;
+                        table{
+                            tr{
+                                td.pattern{text-align: right; padding-right: 15px; font-size: 14px;}
+                                td.pr-val{text-align: left; }
+                            }
+                        }
+                    } 
+                    .box-2{
+                        width:43.33%; float: left;
+                        table{
+                            tr{
+                                td.pattern{text-align: right; padding-right: 15px; font-size: 14px;}
+                                td.pr-val{text-align: left; }
+                            }
+                        }
+                    }
+                    .box-3{
+                        width:23.33%; float: left;
+                        table{
+                            tr{
+                                td.price{font-weight: 700; font-size: 18px; text-align: right; color:$black-normal;}
+                            }
+                        }
+                    }
+                }
+                .journal-wrapper{
+                    width: 100%; float: left; border:1px solid $border-color; padding: 10px;
+                    textarea{width: 100%; display: block; border:0; outline: 0; margin-bottom: 10px; height:90px;  resize: none;}
+                    button{float: right;}
+                }  
+                .jcomment{
+                    width: 100%; float: left; margin-top:15px;
+                    ul{                            
+                        li{
+                            display: block; border-bottom: 1px solid $border-color;  margin-top:5px; margin-bottom:5px;
+                            .datetime{font-size: 12px; display: block; padding-bottom: 5px;}
+                            .message{font-size: 14px; display: block; word-break: break-word; padding-bottom: 5px;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+/*code for dashboard billing*/
+.BillingWrapper{
+    width: 100%; float: left; padding:15px;
+    .billingBox{
+        width: 100%; float: left; padding-top:20px; 
+        h3{
+            font-size: 20px; font-weight: 400; color:$black-normal; line-height: 20px; padding-bottom: 5px;
+            span{font-size: 16px; color: $grey-normal;}
+        }
+        table{
+            tbody{
+                tr{
+                    td{font-size: 14px;} 
+                    td.price{text-align: right; color: $black-normal; min-width: 80px;}
+                    td.total{
+                        text-align: right; color: $black-normal; position: relative; min-width:70px;                        
+                    }
+                    td.total:before{content:''; min-width:55px; position: absolute; bottom: 28px; border-width:2px; height:1px; background: $black-normal;}
+                }
+            }
+        }
+    }
+  .AttachFile{
+      position: absolute; bottom: 10px; right: 34px;
+      .billing .dz-message.needsclick .msg-label span.attachpdf{display: inline-block; vertical-align: middle;}
+      .billing .dz-message.needsclick .msg-label img{display: inline-block; vertical-align: middle; padding-left: 15px;}
+      .billing .dz-message{margin: 15px 0;}
+  }  
+}
+/*Code for dashboard purchasing*/
+.purchasing-hldr{
+    width:100%; float: left; border:1px solid $border-color; background:$black-normal; 
+    .col-1{
+        width: 55%; float: left; margin-top: 10px; margin-bottom: 10px;
+        .PurchaseListWrapper{
+             padding:0 15px 0 2px;
+            .purchase-hldr{
+                width: 100%; float: left;
+                li{
+                    list-style: none; width:100%; float: left; display: inline-block; vertical-align: middle; padding: 6px 10px; background: $white; margin-bottom: 5px; overflow: hidden; min-height: 53px; @include box-shadow(inset 0, 1px, 10px, rgba(0, 0, 0, 0.2));
+                    .mainBox{
+                        width:100%; float: left; display:table;
+                        .col-1{
+                            width:60%; float: left; display: table-cell; vertical-align: middle; margin-top:0; padding:0; margin-bottom: 0;
+                            h6{
+                                color: #383737; font-size: 16px; font-weight: $bold; line-height: 18px;
+                                span.sub-heading{font-size: 14px; font-weight: $regular;}
+                            }
+                            .btmboxwrapper{
+                                width:100%; float: left; 
+                                .cl-1{display: inline-block; font-size:14px; padding-right: 20px;}
+                                .cl-2{display: inline-block; font-size:14px;}
+                            }
+                        }
+                        .col-2{width:20%; float: left; display: table-cell; vertical-align: middle;}
+                        .col-3{
+                            width:20%; float: left; display: table-cell; vertical-align: middle;
+                            label.control{float: right;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .col-2{
+        width:45%; float: left; padding:10px 2px 5px 2px;
+        .wrapper{
+            border:1px solid $border-color; background: $white; width:100%; float:left; min-height: 550px;
+            .purchasingWrapper{
+                width: 100%; float:left; padding: 15px;
+                .purchaseBox{
+                    width: 100%; float:left; padding-top: 25px;
+                    h6{color: #383737; font-size: 16px; font-weight: $bold; line-height: 18px; padding-bottom: 15px;}
+                    table{
+                        tbody{
+                            tr{
+                                td{font-size: 14px; border-bottom: 1px solid $border-color;}
+                            }
+                        }
+                    }
+                }
+                .commentBox{
+                    width: 100%; float: left; padding-top: 10px; padding-bottom: 10px;
+                    textarea{width:100%; height: 100px; resize: none;}
+                }
+                .dropdownBox{
+                    width: 100%; float:left;
+                    .vendorWrapper{width:60%; float: left; display: inline-block; padding-right: 10px;}
+                    a.addPo{display: inline-block;}
+                }
+            }
+        }
+    }
+}
+/*Code for receiving*/
+.Receiving-hldr{
+    width:100%; float: left; border:1px solid $border-color; background:$black-normal; 
+    .col-1{
+        width: 55%; float: left; margin-top: 10px; margin-bottom: 10px;
+        .ReceiveListWrapper{
+            padding:0 15px 0 2px;
+            .received-hldr{
+                width: 100%; float: left;
+                li{
+                    list-style: none; width:100%; float: left; display: inline-block; vertical-align: middle; padding: 6px 10px; background: $white; margin-bottom: 5px; overflow: hidden; min-height: 53px; @include box-shadow(inset 0, 1px, 10px, rgba(0, 0, 0, 0.2));
+                    .mainBox{
+                        width:100%; float: left; display:table;
+                        .col-1{
+                            width:50%; float: left; display: table-cell; vertical-align: middle; margin-top:0; padding:0; margin-bottom: 0;
+                            h6{
+                                color: #383737; font-size: 16px; font-weight: $bold; line-height: 18px;
+                                span.sub-heading{font-size: 14px; font-weight: $regular;}
+                            }
+                            .btmboxwrapper{
+                                width:100%; float: left; 
+                                .total-items{display: inline-block; font-size:14px;}
+                            }
+                        }
+                        .col-2{
+                            width:50%; float: right; display: table-cell; vertical-align: middle; text-align:$right; padding:0px;
+                            .invtId,.dateTime{display: block; font-size:14px;}                            
+                        }
+                        
+                    }
+                }
+            }
+            
+        }
+    }
+    .col-2{
+        width:45%; float: left; padding:10px 2px 5px 2px;
+        .wrapper{
+            border:1px solid $border-color; background: $white; width:100%; float:left; min-height: 550px;
+            .receivingWrapper{
+                width: 100%; float:left; padding: 15px;
+                .ReceiveBox{
+                    width: 100%; float:left; padding-top: 25px;
+                    h6{color: #383737; font-size: 16px; font-weight: $bold; line-height: 18px; padding-bottom: 15px;}
+                    table{
+                        tbody{
+                            tr{
+                                td{font-size: 14px; border-bottom: 1px solid $border-color;}
+                                td.recivingCheckbox{
+                                    .control{margin-top:0; padding-left:0;}
+                                }
+                            }
+                        }
+                    }
+                }
+                .commentBox{
+                    width: 100%; float: left; padding-top: 10px; padding-bottom: 10px;
+                    textarea{width:100%; height: 100px; resize: none;}
+                }
+                
+            }
+        }
+    }
+}
+/*code for Invoice*/
+.Invoice-container{
+    margin-top:20px; margin-bottom: 20px;
+   .InvoiceBoxHldr{
+       border:1px solid $tan-normal; padding: 20px; display: block;
+       .header-top-wrapper{
+           position:relative;
+           .DateSchedule{
+               float:right; text-align: center;
+               .invoiceId{padding-bottom: 10px;}
+               .datetime{font-size: 14px;}
+           }
+          .msg{position: absolute; bottom: -40px; right: 10px; font-style: italic; font-size: 14px;}
+       }
+   
+   .customeInfo{border-bottom: 0; padding-bottom: 10px;} 
+   .invoiceDataHldr{
+       width:100%; float:left; border-top:2px solid $grey-light; padding-top:25px; margin-bottom: 170px;
+   }
+   .instruction{
+       padding-bottom: 10px; color:$black-normal;
+       span{color:$light-grey; font-size: 14px;}
+   }
+   .invoiceFooter{
+       width:100%; float: left; border-top:1px solid $grey-light; padding-top:10px;        
+       table{
+           margin-bottom:0px; font-size:14px;
+           tbody{
+               tr{ 
+                   td{padding-bottom: 10px;}
+                   td.sub-total{padding-top:0;}
+                   td.total{
+                       strong{font-weight: $bold; color:$black-normal;}
+                   }
+               }
+           }
+       }
+       .soldby{font-size: 14px;}
+       .fsc{
+           width:100%; float:left; display:block; margin-top:55px;
+           .imgrp{
+               max-width:80px; float:left; display: inline-block;
+           }
+           p{margin-left:85px; padding-top:15px; font-size:14px;}
+       }
+       .disclaimer{
+           p{font-size: 14px; line-height: 16px; margin-bottom: 8px;}
+       }
+       .warning{
+           width:100%; float: left; padding: 10px; background: $border-color;
+           h3{font-size: 24px; line-height: 24px;}
+           p{font-size: 14px; line-height: 16px; margin-bottom: 0px;}
+       }
+   }
+   }
+}
+/*code for order view page*/
+.headOrderWrapper{
+    width: 100%; float: left; padding: 20px;
+    .IdInfo{width: 40%; float: left; display: inline-block;}
+    .sideIcons{text-align: right;}
+}
+.totalWrapper{
+    width:100%; float: left; margin-top: 50px;
+    table{
+        text-align: right;
+        tbody{
+            tr{
+                td.tlabel{padding-right: 50px;}
+                td.price{
+                    width: 90px; word-break: break-word;
+                    .edtxtbox{text-align: right;}
+                }
+            }
+        }
+        tfoot{
+            tr{
+                td{font-weight: $bold; color: $black;}  
+                td.prtotal{padding-right: 50px;}
+                td.totalOrderPrice{position: relative;}
+                td.totalOrderPrice:before{content: ''; width: 83px; height: 1px; position: absolute; top:0px; background: $black;}
+            }
+        }
+    }
+}
+/*code for pop up dashboard page*/
+.statusDetailsPopUp{
+      top:80px; width: 100%; float:left;
+        .modal-content{border:0;}
+        .popupWrapper{
+         width:100%; float: left; padding:10px 2px 5px 2px;
+         .wrapper{
+             border:1px solid $border-color; background: $white; width:100%; float:left; min-height: 550px;
+             .top-section{
+                 border:2px solid $grey-hover; position:relative;
+                 &:after, &:before {
+                     top: 100%;
+                     left: 35%;
+                     border: solid transparent;
+                     content: " ";
+                     height: 0;
+                     width: 0;
+                     position: absolute;
+                     pointer-events: none;
+                 }
+
+                 &:after {
+                     //border-color: rgba(136, 183, 213, 0);
+                     border-top-color: $white;
+                     border-width: 15px;
+                     margin-left: -15px;
+                 }
+                 &:before {
+                     //border-color: red;
+                     border-top-color: $border-color;
+                     border-width: 19px;
+                     margin-left: -19px;
+                 }
+                 ul.staus-hldr{
+                     li{
+                         position:relative;
+                         a{
+                             margin-bottom: 0; cursor: default; @include box-shadow(inset 0, 0px, 0px, rgba(0, 0, 0, 0)); position:relative;
+                             .inner{
+                                 &:hover{border:0;}
+                             }
+                             .closePopUpBtn{position: absolute; top:12px; right:18px; color: $black; opacity: 1; font-size: 30px; }
+                         }
+                     }
+                 }
+             }
+             .bottom-section{
+                 padding: 15px; width: 100%; float: left;  
+                 .txt-wrapper{
+                     width: 100%; float: left;
+                     .box-1{
+                         width:33.33%; float: left;
+                         table{
+                             tr{
+                                 td.pattern{text-align: right; padding-right: 15px; font-size: 14px;}
+                                 td.pr-val{text-align: left; }
+                             }
+                         }
+                     } 
+                     .box-2{
+                         width:43.33%; float: left;
+                         table{
+                             tr{
+                                 td.pattern{text-align: right; padding-right: 15px; font-size: 14px;}
+                                 td.pr-val{text-align: left; font-size: 14px;}
+                             }
+                         }
+                     }
+                     .box-3{
+                         width:23.33%; float: left;
+                         table{
+                             tr{
+                                 td.price{font-weight: 700; font-size: 18px; text-align: right; color:$black-normal;}
+                             }
+                         }
+                     }
+                 }
+                 .journal-wrapper{
+                     width: 100%; float: left; border:1px solid $border-color; padding: 10px;
+                     textarea{width: 100%; display: block; border:0; outline: 0; margin-bottom: 10px; height:45px;  resize: none;}
+                     button{float: right;}
+                 }  
+                 .jcomment{
+                     width: 100%; float: left; margin-top:15px;
+                     ul{                            
+                         li{
+                             display: block; border-bottom: 1px solid $border-color;  margin-top:5px; margin-bottom:5px;
+                             .datetime{font-size: 12px; display: block; padding-bottom: 5px;}
+                             .message{font-size: 14px; display: block; word-break: break-word; padding-bottom: 5px;}
+                         }
+                     }
+                 }
+             }
+         }
+     }
+
+}
+/* Tooltip container */
+.tooltipTxt{
+    opacity:0; font-size: 14px; @include box-shadow(inset 0, 1px, 5px, rgba(88, 88, 88, 0.7)); float: left;  padding:7px 10px;  position: absolute;  background: #fff;top: -15px; left: 95px; z-index: 9; @include border-radius(5px);
+    .email{
+        a{height:auto; color:$green-active; cursor: pointer;}
+    }
+    &:after{content:''; border-top: 10px solid transparent;  border-bottom: 10px solid transparent; border-right:10px solid rgba(0, 0, 0, 0.3); position: absolute; top: 21px; left: -10px;}
+
+}
+
+/* User management css */
+.user-actions{
+   position: relative;
+   .context-menu{
+       width: 15px; margin:0 auto; cursor: pointer;
+       i.fa.fa-ellipsis-v{}
+   }
+   ul.user-navigation{    
+         background:#ffffff; width: 135px; height:auto; z-index: 9; left:-23px; position: absolute; border:1px solid #ccc; display: none;
+       li{
+           a{
+               display: block; font-size:14px; text-align: center; color:#999999; padding:10px;
+               &:hover{background-color:#a2b70f; text-decoration: none; color: #fff; font-weight: 600;}
+           }
+           
+       }
+   }
+  .context-menu:hover ul.user-navigation{display:block;}
+}
+.createuser{
+    top:20px;
+    .modal-body{max-height: 500px; overflow: auto;}
+    .modal-content{border:0;}
+    .modal-header {
+               background-color: $green-normal;@include border-top-right-radius(5px); @include border-top-left-radius(5px);
+             .closebtn {color: $white; float: right; font-size: 20px; font-weight: $bold; opacity: 1; margin-top: 0px;}            
+             .closebtn:hover,.closebtn:focus {color: #000; text-decoration: none; cursor: pointer;}
+             h4.modal-title{line-height: 1; color:#fff;}
+        }
+    .modal-footer{border-top:none;} 
+    .addroles{
+        .control{width: 50%; float:left; font-size: 14px;}
+    }
+}
+.dynamicWrapper{
+    background: #efefef; padding: 10px;
+    .email-list{
+        padding-bottom: 8px;
+        a{
+          font-size: 14px;  
+        }
+        a:last-child{padding-left: 15px;}
+    }
+    .head-wrapper{
+        table{
+            margin-bottom: 0px;
+            tr{
+                th{padding: 5px;}
+            }
+        }
+    }
+    .body-wrapper{
+        table{margin-bottom: 0px;}
+    }
+    
+}
+
+
+@media (min-width: 768px){
+    .right-nav {
+        float: left; margin: 0; margin-top:7px;;
+        li{
+            float: left; position: relative; display: inline-block; padding-bottom: 12px;
+            &:first-child a{@include border-top-left-radius(4px); @include border-bottom-left-radius(4px);}
+            &:last-child a{@include border-top-right-radius(4px); @include border-bottom-right-radius(4px); border-right: none;}
+            a{
+                display: block; position: relative; padding: 10px 23px; background:$green-normal; color:$white; text-decoration: none; border-right: 1px solid $black-data; 
+            }
+            a:hover{background:$green-hover;}                
+        }
+
+    }
+
+}
+@media screen and(min-width:992px){    
+    .noPadding{padding-left:0px; padding-right: 0px;}
+    .nav-md .main-collapse.body .left_col{width: 0%;position: absolute;left:0; background: $white; z-index: 9999;}
+    .nav-md .main-collapse.body .middle_col{ margin-left: 0%; padding-left:25px;  visibility: hidden;}
+    .nav-sm .main-collapse.body .left_col{width: 24%; background: $white; position: absolute; left:0; z-index: 9999;}
+    .col-md-6-5{width: 55%;}
+    .col-md-2-5{width: 22.5%;}
+}
+@media screen and(min-width:1600px){
+    .container{width: 1250px;}
+    .container-fluid{padding-left:30px; padding-right: 30px;}
+}
+
+@media screen and(max-width: 1680px){
+    ul.staus-hldr li a .inner .box2 .heading{max-width: 258px;}
+}
+@media screen and(max-width: 1440px){
+    ul.staus-hldr li a .inner .box2 .heading{max-width: 218px;}
+}
+@media screen and(max-width:1366px){
+    .logoHldr .brandTxt{font-size: 14px;}
+    .table > tbody > tr > td,table > thead > tr > th{font-size: 14px; padding:6px;}
+    .commonFormHldr .form-group .label-col{width: 38%;}
+    .commonFormHldr .form-group .frm-box-col{width:60%;}
+    h2{font-size: 22px;}
+    ul.staus-hldr li a .inner .box2 .heading{max-width: 285px;}
+}
+@media screen and(max-width:1280px){
+    .dashborad-hldr{
+        .col-1{width: 100%; margin-bottom: 5px;}
+        .col-2{
+            width: 100%; display: none;    
+        }        
+    }
+    ul.staus-hldr li a .inner .box2 .heading{max-width: 372px;}
+    .confirmBoxWrapper{
+        .modal-content{
+            width:40%;
+        }
+    }
+}
+@media screen and(max-width:991px){
+    .nav-md .main-collapse.body .left_col{width: 0%; position: absolute;  background: #ffffff; float: left;}
+    .nav-md .main-collapse.body .middle_col{margin-left: 0%; padding-left: 25px; position: relative;}
+    .nav-sm .leftSideWrapper{
+        .SearchWrapper,ListWrapper,commonFormHldr{display: block;}
+        .ListWrapper{display: block;}
+        .commonFormHldr{display: block;}
+    }
+    .nav-sm .main-collapse.body .left_col{width: 100%; position: absolute;  background: #ffffff;}
+    .logoHldr .brandTxt{display: none;}
+    .DailySchduleHldr{        
+        .boxHldr{
+            ul.dailySchedule{
+                li{
+                    .main-row{
+                        .column-1{width:100%;}
+                        .column-2{width:100%;}
+                    }  
+                }
+            }
+        }
+        
+    }
+
+    ul.staus-hldr{
+        li{
+
+            a{
+
+                .inner{
+                    .box1{
+                        h6{font-size: 13px;}
+                        .size{font-size: 13px;}                            
+                    }
+
+                    .box2{
+                        .heading{max-width: 180px; font-size: 13px;}
+                        .sub-heading{font-size: 13px;}
+                    } 
+                    .box3{                 
+                        .sub-heading{font-size:13px;}
+                    }
+                    .box4{
+                        .heading{font-size: 13px;}
+                        .sub-heading{font-size: 13px;}
+                    }
+                    &:hover{}
+                }
+                .statusBox{}                   
+            }                  
+        }
+    }    
+    .purchasing-hldr{
+        .col-1{width:100%;}
+        .col-2{width:100%; padding-top:15px;}
+    }
+    
+    .addressWrapper{
+        margin-top:50px;
+        ul{
+            li{width:48%;}
+        }
+    }
+    .Invoice-container{
+        .InvoiceBoxHldr{
+            .header-top-wrapper{
+               .msg{bottom:-20px;} 
+            } 
+        }
+    }   
+    .header-top-wrapper{
+    width: 100%; float: left; padding-bottom:25px;
+    .col-1{       
+        .logo{
+            .brand{
+            }
+            .logoTxt{
+                font-size:12px; vertical-align: top;
+                h1{font-size: 16px; text-transform: $upper; color: $black-normal;}
+            }
+        }
+    }
+    
+}
+.dataBoxHldr{
+    table{
+        tr{
+            td{font-size: 12px; padding:4px;}
+        }
+    }
+}
+
+.confirmBoxWrapper{
+        .modal-content{
+            width:60%;
+        }
+    }
+    
+}
+@media screen and(max-width:767px){
+    
+    .navbar-toggle{padding: 10px 8px;}
+    .container-fluid>.navbar-header{margin-left:0px; margin-right: 0;}
+    ul.staus-hldr li a .inner .box1 h6{flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 85px;}
+    ul.staus-hldr li a .inner .box3 .sub-heading{flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 65px;}
+    .header-top{min-height: inherit; height: inherit; padding-top: 15px;}
+    .MainHldr{top:80px;}
+    .navigationWrapper{
+        width: 100%;  
+        .IconsHldr{float: right;}  
+    } 
+    .right-nav{
+        li{
+            a{display: block; position: relative; padding: 10px 23px; background: #a2b70f; color: #ffffff; text-decoration: none; border-bottom: 1px solid #373737;}
+        }  
+    }
+    .navbar-collapse.in{overflow-y: inherit;}
+    .logoHldr{
+        .brand {width: 55px; float: left;}
+    }
+    .navigationWrapper{
+        .navHldr{padding: 10px 0;}
+    } 
+    
+        
+    .DailySchduleHldr{
+        .header-top-wrapper{
+            .col-1{
+                .brand{width: 65px;}
+                .logoTxt{display:none;}
+            }
+            .col-2{}  
+        }
+        .boxHldr{
+            ul.dailySchedule{
+                li{
+                    .main-row{
+                        .column-1{
+                            height: 43px;
+                            .col-1{
+                                .TxtBox{
+                                    font-size:14px;
+                                }
+                            }
+                            .col-2{
+                                .statusHldr{
+                                    .statusBox{
+                                        height: 35px; width: 35px;
+                                    }
+                                }
+                            }
+                        }   
+                        .column-2{
+                            .comments{
+                                min-height: 43px; font-size: 12px;
+                            }
+                        }
+                    } 
+                }
+            }
+        }
+    }
+
+}
+@media screen and(max-width:479px){
+    .LoginBoxWrapper{width: 100%;}
+    .navigationWrapper .IconsHldr li:nth-child(1),.navigationWrapper .IconsHldr li:nth-child(2){padding-right: 0;}
+    .right-nav li a{padding: 10px 15px;}
+    .right-nav .dropdown-menu li a{padding: 5px 10px;}
+    .addressWrapper{
+        margin-top:50px;
+        ul{
+            li{width:100%; margin-right: 0; margin-bottom: 10px;}
+        }
+    }
+}

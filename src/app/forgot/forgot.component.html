@@ -1,0 +1,41 @@
+<section class="LoginBoxHldr">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-xs-12">
+        <div class="LoginBoxWrapper">
+          <div class="logo"></div>
+          <h6>Talbert Architectural Panels & Doors</h6>
+          <div class="login-block">
+            <h6>Please enter your email address below. We will send you a token to reset your password.</h6>
+
+            <span class="invalid-credential" [hidden]="!_forgotError"> {{ _errorMsg }}</span>
+            <span class="success-msg" [hidden]="!_success"> {{ _successMsg }}</span>
+
+            <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+              <div class="form-group has-feedback">
+                <div class="input email required">
+                  <input type="email" name="email" placeholder="Email"  class="form-control" id="email" ngModel="" #email="ngModel" email>
+                </div>
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+              </div>
+
+              <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                   class="help-block">
+
+                  <div *ngIf="email.errors.email ">
+                      Invalid Email
+                  </div>
+
+
+
+                </div>
+              <button [disabled]="!form.valid">Reset password</button>
+              <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

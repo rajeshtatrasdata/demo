@@ -1,0 +1,235 @@
+[33mcommit 8c4f61ea420f3a26c67697615be34e65382f558c[m
+Author: Rajesh <rajesh@tatrasdata.com>
+Date:   Tue Aug 29 14:00:57 2017 +0530
+
+    implemented login api
+
+[1mdiff --git a/backend/src/AppBundle/Controller/UserController.php b/backend/src/AppBundle/Controller/UserController.php[m
+[1mindex 1c1a00b..4051745 100755[m
+[1m--- a/backend/src/AppBundle/Controller/UserController.php[m
+[1m+++ b/backend/src/AppBundle/Controller/UserController.php[m
+[36m@@ -71,14 +71,9 @@[m [mclass UserController extends Controller[m
+                 $statusCode = 422;[m
+             } else {[m
+ [m
+[31m-                $username     = $request->request->get('username');[m
+[31m-                $password  = md5($request->request->get('password'));[m
+[31m-[m
+[31m-                $em = $this->getDoctrine()->getManager();[m
+[31m-[m
+[31m-[m
+ [m
+ [m
+[32m+[m[32m                $em = $this->getDoctrine()->getManager();[m
+ [m
+                 $user = $this->getDoctrine()->getRepository('AppBundle:User')->findOneBy(['username'=>$username]);[m
+ [m
+[36m@@ -221,6 +216,9 @@[m [mclass UserController extends Controller[m
+         }[m
+     }[m
+ [m
+[32m+[m
+[32m+[m
+[32m+[m
+     private function checkIfEmailExists($email) {[m
+         $emailData = $this->getDoctrine()[m
+             ->getRepository('AppBundle:Profile')[m
+[36m@@ -253,4 +251,7 @@[m [mclass UserController extends Controller[m
+             return false;[m
+         }[m
+     }[m
+[32m+[m
+[32m+[m
+[32m+[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/backend/var/logs/dev.log b/backend/var/logs/dev.log[m
+[1mindex 23d65c2..d626a5b 100755[m
+[1m--- a/backend/var/logs/dev.log[m
+[1m+++ b/backend/var/logs/dev.log[m
+[36m@@ -6196,3 +6196,54 @@[m
+ [2017-08-28 11:02:04] doctrine.DEBUG: SELECT t0.id AS id_1, t0.username AS username_2, t0.password AS password_3, t0.role_id AS role_id_4, t0.is_active AS is_active_5, t0.created_at AS created_at_6, t0.updated_at AS updated_at_7 FROM user t0 WHERE t0.username = ? LIMIT 1 ["rajesh"] [][m
+ [2017-08-28 14:02:56] request.INFO: Matched route "_profiler". {"route":"_profiler","route_parameters":{"_controller":"web_profiler.controller.profiler:panelAction","token":"062aba","_route":"_profiler"},"request_uri":"http://talbert.dev.backend/_profiler/062aba?panel=logger","method":"GET"} [][m
+ [2017-08-28 14:02:56] request.INFO: Matched route "_profiler_search_bar". {"route":"_profiler_search_bar","route_parameters":{"_controller":"web_profiler.controller.profiler:searchBarAction","_route":"_profiler_search_bar"},"request_uri":"http://talbert.dev.backend/_profiler/search_bar?panel=logger","method":"GET"} [][m
+[32m+[m[32m[2017-08-29 12:59:05] request.INFO: Matched route "app_user_apilogin". {"route":"app_user_apilogin","route_parameters":{"_controller":"AppBundle\\Controller\\UserController::apiLoginAction","_route":"app_user_apilogin"},"request_uri":"http://talbert.dev.backend/api/user/login","method":"POST"} [][m
+[32m+[m[32m[2017-08-29 12:59:05] security.DEBUG: Checking for guard authentication credentials. {"firewall_key":"api","authenticators":1} [][m
+[32m+[m[32m[2017-08-29 12:59:05] security.DEBUG: Calling getCredentials() on guard configurator. {"firewall_key":"api","authenticator":"AppBundle\\Security\\JwtTokenAuthenticator"} [][m
+[32m+[m[32m[2017-08-29 12:59:05] security.INFO: Populated the TokenStorage with an anonymous Token. [] [][m
+[32m+[m[32m[2017-08-29 12:59:05] doctrine.DEBUG: SELECT t0.id AS id_1, t0.username AS username_2, t0.password AS password_3, t0.role_id AS role_id_4, t0.is_active AS is_active_5, t0.created_at AS created_at_6, t0.updated_at AS updated_at_7 FROM user t0 WHERE t0.username IS NULL LIMIT 1 [] [][m
+[32m+[m[32m[2017-08-29 12:59:05] php.CRITICAL: Call to a member function getPassword() on null {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Call to a member function getPassword() on null at /var/www/html/Talbert/backend/src/AppBundle/Controller/UserController.php:86)"} [][m
+[32m+[m[32m[2017-08-29 12:59:05] request.CRITICAL: Uncaught PHP Exception Symfony\Component\Debug\Exception\FatalThrowableError: "Call to a member function getPassword() on null" at /var/www/html/Talbert/backend/src/AppBundle/Controller/UserController.php line 86 {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Call to a member function getPassword() on null at /var/www/html/Talbert/backend/src/AppBundle/Controller/UserController.php:86)"} [][m
+[32m+[m[32m[2017-08-29 12:59:21] request.INFO: Matched route "app_user_apilogin". {"route":"app_user_apilogin","route_parameters":{"_controller":"AppBundle\\Controller\\UserController::apiLoginAction","_route":"app_user_apilogin"},"request_uri":"http://talbert.dev.backend/api/user/login","method":"POST"} [][m
+[32m+[m[32m[2017-08-29 12:59:21] security.DEBUG: Checking for guard authentication credentials. {"firewall_key":"api","authenticators":1} [][m
+[32m+[m[32m[2017-08-29 12:59:21] security.DEBUG: Calling getCredentials() on guard configurator. {"firewall_key":"api","authenticator":"AppBundle\\Security\\JwtTokenAuthenticator"} [][m
+[32m+[m[32m[2017-08-29 12:59:21] security.INFO: Populated the TokenStorage with an anonymous Token. [] [][m
+[32m+[m[32m[2017-08-29 12:59:21] doctrine.DEBUG: SELECT t0.id AS id_1, t0.username AS username_2, t0.password AS password_3, t0.role_id AS role_id_4, t0.is_active AS is_active_5, t0.created_at AS created_at_6, t0.updated_at AS updated_at_7 FROM user t0 WHERE t0.username IS NULL LIMIT 1 [] [][m
+[32m+[m[32m[2017-08-29 12:59:21] php.CRITICAL: Call to a member function getPassword() on null {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Call to a member function getPassword() on null at /var/www/html/Talbert/backend/src/AppBundle/Controller/UserController.php:86)"} [][m
+[32m+[m[32m[2017-08-29 12:59:21] request.CRITICAL: Uncaught PHP Exception Symfony\Component\Debug\Exception\FatalThrowableError: "Call to a member function getPassword() on null" at /var/www/html/Talbert/backend/src/AppBundle/Controller/UserController.php line 86 {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Call to a member function getPassword() on null at /var/www/html/Talbert/backend/src/AppBundle/Controller/UserController.php:86)"} [][m
+[32m+[m[32m[2017-08-29 13:02:08] request.INFO: Matched route "app_user_apilogin". {"route":"app_user_apilogin","route_parameters":{"_controller":"AppBundle\\Controller\\UserController::apiLoginAction","_route":"app_user_apilogin"},"request_uri":"http://talbert.dev.backend/api/user/login","method":"POST"} [][m
+[32m+[m[32m[2017-08-29 13:02:08] security.DEBUG: Checking for guard authentication credentials. {"firewall_key":"api","authenticators":1} [][m
+[32m+[m[32m[2017-08-29 13:02:08] security.DEBUG: Calling getCredentials() on guard configurator. {"firewall_key":"api","authenticator":"AppBundle\\Security\\JwtTokenAuthenticator"} [][m
+[32m+[m[32m[2017-08-29 13:02:08] security.INFO: Populated the TokenStorage with an anonymous Token. [] [][m
+[32m+[m[32m[2017-08-29 13:02:08] doctrine.DEBUG: SELECT t0.id AS id_1, t0.username AS username_2, t0.password AS password_3, t0.role_id AS role_id_4, t0.is_active AS is_active_5, t0.created_at AS created_at_6, t0.updated_at AS updated_at_7 FROM user t0 WHERE t0.username IS NULL LIMIT 1 [] [][m
+[32m+[m[32m[2017-08-29 13:02:52] request.INFO: Matched route "app_user_apilogin". {"route":"app_user_apilogin","route_parameters":{"_controller":"AppBundle\\Controller\\UserController::apiLoginAction","_route":"app_user_apilogin"},"request_uri":"http://talbert.dev.backend/api/user/login","method":"POST"} [][m
+[32m+[m[32m[2017-08-29 13:02:52] security.DEBUG: Checking for guard authentication credentials. {"firewall_key":"api","authenticators":1} [][m
+[32m+[m[32m[2017-08-29 13:02:52] security.DEBUG: Calling getCredentials() on guard configurator. {"firewall_key":"api","authenticator":"AppBundle\\Security\\JwtTokenAuthenticator"} [][m
+[32m+[m[32m[2017-08-29 13:02:52] security.INFO: Populated the TokenStorage with an anonymous Token. [] [][m
+[32m+[m[32m[2017-08-29 13:02:52] doctrine.DEBUG: SELECT t0.id AS id_1, t0.username AS username_2, t0.password AS password_3, t0.role_id AS role_id_4, t0.is_active AS is_active_5, t0.created_at AS created_at_6, t0.updated_at AS updated_at_7 FROM user t0 WHERE t0.username = ? LIMIT 1 ["rajesh"] [][m
+[32m+[m[32m[2017-08-29 13:03:02] request.INFO: Matched route "app_user_apilogin". {"route":"app_user_apilogin","route_parameters":{"_controller":"AppBundle\\Controller\\UserController::apiLoginAction","_route":"app_user_apilogin"},"request_uri":"http://talbert.dev.backend/api/user/login","method":"POST"} [][m
+[32m+[m[32m[2017-08-29 13:03:02] security.DEBUG: Checking for guard authentication credentials. {"firewall_key":"api","authenticators":1} [][m
+[32m+[m[32m[2017-08-29 13:03:02] security.DEBUG: Calling getCredentials() on guard configurator. {"firewall_key":"api","authenticator":"AppBundle\\Security\\JwtTokenAuthenticator"} [][m
+[32m+[m[32m[2017-08-29 13:03:02] security.INFO: Populated the TokenStorage with an anonymous Token. [] [][m
+[32m+[m[32m[2017-08-29 13:03:02] doctrine.DEBUG: SELECT t0.id AS id_1, t0.username AS username_2, t0.password AS password_3, t0.role_id AS role_id_4, t0.is_active AS is_active_5, t0.created_at AS created_at_6, t0.updated_at AS updated_at_7 FROM user t0 WHERE t0.username = ? LIMIT 1 ["rajesh"] [][m
+[32m+[m[32m[2017-08-29 13:03:17] request.INFO: Matched route "app_user_apilogin". {"route":"app_user_apilogin","route_parameters":{"_controller":"AppBundle\\Controller\\UserController::apiLoginAction","_route":"app_user_apilogin"},"request_uri":"http://talbert.dev.backend/api/user/login","method":"POST"} [][m
+[32m+[m[32m[2017-08-29 13:03:17] security.DEBUG: Checking for guard authentication credentials. {"firewall_key":"api","authenticators":1} [][m
+[32m+[m[32m[2017-08-29 13:03:17] security.DEBUG: Calling getCredentials() on guard configurator. {"firewall_key":"api","authenticator":"AppBundle\\Security\\JwtTokenAuthenticator"} [][m
+[32m+[m[32m[2017-08-29 13:03:17] security.INFO: Populated the TokenStorage with an anonymous Token. [] [][m
+[32m+[m[32m[2017-08-29 13:03:17] doctrine.DEBUG: SELECT t0.id AS id_1, t0.username AS username_2, t0.password AS password_3, t0.role_id AS role_id_4, t0.is_active AS is_active_5, t0.created_at AS created_at_6, t0.updated_at AS updated_at_7 FROM user t0 WHERE t0.username = ? LIMIT 1 ["rajesh"] [][m
+[32m+[m[32m[2017-08-29 13:53:42] request.INFO: Matched route "app_user_apilogin". {"route":"app_user_apilogin","route_parameters":{"_controller":"AppBundle\\Controller\\UserController::apiLoginAction","_route":"app_user_apilogin"},"request_uri":"http://talbert.dev.backend/api/user/login","method":"POST"} [][m
+[32m+[m[32m[2017-08-29 13:53:42] security.DEBUG: Checking for guard authentication credentials. {"firewall_key":"api","authenticators":1} [][m
+[32m+[m[32m[2017-08-29 13:53:42] security.DEBUG: Calling getCredentials() on guard configurator. {"firewall_key":"api","authenticator":"AppBundle\\Security\\JwtTokenAuthenticator"} [][m
+[32m+[m[32m[2017-08-29 13:53:42] security.INFO: Populated the TokenStorage with an anonymous Token. [] [][m
+[32m+[m[32m[2017-08-29 13:53:42] doctrine.DEBUG: SELECT t0.id AS id_1, t0.username AS username_2, t0.password AS password_3, t0.role_id AS role_id_4, t0.is_active AS is_active_5, t0.created_at AS created_at_6, t0.updated_at AS updated_at_7 FROM user t0 WHERE t0.username = ? LIMIT 1 ["rajesh"] [][m
+[32m+[m[32m[2017-08-29 13:59:03] request.INFO: Matched route "app_user_apilogin". {"route":"app_user_apilogin","route_parameters":{"_controller":"AppBundle\\Controller\\UserController::apiLoginAction","_route":"app_user_apilogin"},"request_uri":"http://talbert.dev.backend/api/user/login","method":"POST"} [][m
+[32m+[m[32m[2017-08-29 13:59:03] security.DEBUG: Checking for guard authentication credentials. {"firewall_key":"api","authenticators":1} [][m
+[32m+[m[32m[2017-08-29 13:59:03] security.DEBUG: Calling getCredentials() on guard configurator. {"firewall_key":"api","authenticator":"AppBundle\\Security\\JwtTokenAuthenticator"} [][m
+[32m+[m[32m[2017-08-29 13:59:03] security.INFO: Populated the TokenStorage with an anonymous Token. [] [][m
+[32m+[m[32m[2017-08-29 13:59:03] doctrine.DEBUG: SELECT t0.id AS id_1, t0.username AS username_2, t0.password AS password_3, t0.role_id AS role_id_4, t0.is_active AS is_active_5, t0.created_at AS created_at_6, t0.updated_at AS updated_at_7 FROM user t0 WHERE t0.username = ? LIMIT 1 ["rajesh"] [][m
+[32m+[m[32m[2017-08-29 14:00:22] request.INFO: Matched route "app_user_apilogin". {"route":"app_user_apilogin","route_parameters":{"_controller":"AppBundle\\Controller\\UserController::apiLoginAction","_route":"app_user_apilogin"},"request_uri":"http://talbert.dev.backend/api/user/login","method":"POST"} [][m
+[32m+[m[32m[2017-08-29 14:00:22] security.DEBUG: Checking for guard authentication credentials. {"firewall_key":"api","authenticators":1} [][m
+[32m+[m[32m[2017-08-29 14:00:22] security.DEBUG: Calling getCredentials() on guard configurator. {"firewall_key":"api","authenticator":"AppBundle\\Security\\JwtTokenAuthenticator"} [][m
+[32m+[m[32m[2017-08-29 14:00:22] security.INFO: Populated the TokenStorage with an anonymous Token. [] [][m
+[32m+[m[32m[2017-08-29 14:00:22] doctrine.DEBUG: SELECT t0.id AS id_1, t0.username AS username_2, t0.password AS password_3, t0.role_id AS role_id_4, t0.is_active AS is_active_5, t0.created_at AS created_at_6, t0.updated_at AS updated_at_7 FROM user t0 WHERE t0.username = ? LIMIT 1 ["dsfsd"] [][m
+[32m+[m[32m[2017-08-29 14:00:22] php.CRITICAL: Call to a member function getPassword() on null {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Call to a member function getPassword() on null at /var/www/html/Talbert/backend/src/AppBundle/Controller/UserController.php:81)"} [][m
+[32m+[m[32m[2017-08-29 14:00:22] request.CRITICAL: Uncaught PHP Exception Symfony\Component\Debug\Exception\FatalThrowableError: "Call to a member function getPassword() on null" at /var/www/html/Talbert/backend/src/AppBundle/Controller/UserController.php line 81 {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Call to a member function getPassword() on null at /var/www/html/Talbert/backend/src/AppBundle/Controller/UserController.php:81)"} [][m
+[1mdiff --git a/src/app/_services/authentication.service.ts b/src/app/_services/authentication.service.ts[m
+[1mindex 164ce66..50b7ee8 100755[m
+[1m--- a/src/app/_services/authentication.service.ts[m
+[1m+++ b/src/app/_services/authentication.service.ts[m
+[36m@@ -39,15 +39,7 @@[m [mexport class AuthenticationService {[m
+             // });[m
+     }[m
+ [m
+[31m-    logout() {[m
+[31m-[m
+[31m-        return this.http.get(this.config.apiEndpoint+'/cmsadmin/logout')[m
+[31m-            .map(this.extractData)[m
+[31m-            .catch(this.handleErrorObservable);[m
+[31m-        [m
+[31m-        // remove user from local storage to log user out[m
+[31m-        [m
+[31m-    }[m
+[32m+[m[41m   [m
+ [m
+ [m
+     private extractData(res: Response) {[m
+[1mdiff --git a/src/app/header/header.component.ts b/src/app/header/header.component.ts[m
+[1mindex 935a8ff..f30522f 100755[m
+[1m--- a/src/app/header/header.component.ts[m
+[1m+++ b/src/app/header/header.component.ts[m
+[36m@@ -15,36 +15,16 @@[m [mexport class HeaderComponent implements OnInit {[m
+   }[m
+ [m
+     logout(){[m
+[31m-        this._authenticationService.logout()[m
+[31m-            .subscribe([m
+[31m-                data => {[m
+[31m-                   // console.log(data);[m
+[31m-                    let success = data.success;[m
+[31m-                    localStorage.removeItem('currentUser');[m
+[31m-                    if(success){[m
+[31m-                        this._router.navigate(['/login']);[m
+[31m-                    }[m
+[31m-                    this._router.navigate(['/login']);[m
+[31m-[m
+[31m-                    // this.router.navigate(['/']);[m
+[31m-                    // let username = data.username;[m
+[31m-                    // if(username){[m
+[31m-                    //     localStorage.setItem('currentUser', JSON.stringify(username));[m
+[31m-                    //     this.router.navigate(['/']);[m
+[31m-                    // }else{[m
+[31m-                    //     this.router.navigate(['/login']);[m
+[31m-                    // }[m
+[31m-[m
+[31m-[m
+[31m-[m
+[31m-                },[m
+[31m-                error => {[m
+[31m-                    this._router.navigate(['/login']);[m
+[31m-                    // this.loading = false;[m
+[31m-                    // alert(JSON.parse(error._body).message);[m
+[31m-[m
+[31m-                });[m
+[31m-       // localStorage.removeItem('currentUser');[m
+[32m+[m
+[32m+[m
+[32m+[m[32m            localStorage.removeItem('currentUser');[m
+[32m+[m[32m            localStorage.removeItem('token');[m
+[32m+[m[32m            if (localStorage.getItem("token") === null) {[m
+[32m+[m
+[32m+[m[32m                this._router.navigate(['/login']);[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m
+     }[m
+ [m
+ [m
+[1mdiff --git a/src/app/login/login.component.html b/src/app/login/login.component.html[m
+[1mindex f5e20e2..71a9587 100755[m
+[1m--- a/src/app/login/login.component.html[m
+[1m+++ b/src/app/login/login.component.html[m
+[36m@@ -7,9 +7,10 @@[m
+                            <h6>Talbert Architectural Panels &amp; Doors</h6>[m
+                             <div class="login-block">[m
+                                 <h6>Sign in to start your session</h6>[m
+[32m+[m[32m                                <span class="invalid-credential" [hidden]="!_invalidCredential"> Invalid Credential</span>[m
+                                 <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>[m
+                                 <div class="form-group has-feedback">[m
+[31m-                                    <div class="input email required"><input type="email" class="form-control" name="email" [(ngModel)]="model.email" placeholder="Email" #email="ngModel" required  id="email"></div>   [m
+[32m+[m[32m                                    <div class="input email required"><input type="text" class="form-control" name="email" [(ngModel)]="model.email" placeholder="Username" #email="ngModel" required  id="email"></div>[m
+                                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>[m
+                                     <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>[m
+                                 </div>[m
+[1mdiff --git a/src/app/login/login.component.ts b/src/app/login/login.component.ts[m
+[1mindex 4881e84..dcf643d 100755[m
+[1m--- a/src/app/login/login.component.ts[m
+[1m+++ b/src/app/login/login.component.ts[m
+[36m@@ -46,14 +46,23 @@[m [mimport { AlertService, AuthenticationService } from '../_services/index';[m
+ [m
+ @Component({[m
+     moduleId: module.id.toString(),[m
+[31m-    templateUrl: 'login.component.html'[m
+[32m+[m[32m    templateUrl: 'login.component.html',[m
+[32m+[m[32m    styles:[`[m
+[32m+[m[32m.help-block{[m
+[32m+[m[32mcolor:red;[m
+[32m+[m[32m}[m
+[32m+[m[32m.invalid-credential{[m
+[32m+[m[32mcolor:red;[m
+[32m+[m[32m}[m
+[32m+[m[32m    `][m
+ })[m
+ [m
+ export class LoginComponent implements OnInit {[m
+     model: any = {};[m
+     loading = false;[m
+     returnUrl: string;[m
+[31m-[m
+[32m+[m[32m   private _invalidCredential:boolean=false;[m
+[32m+[m[41m    [m
+     constructor([m
+         private _route: ActivatedRoute,[m
+         private _router: Router,[m
+[36m@@ -94,8 +103,9 @@[m [mexport class LoginComponent implements OnInit {[m
+                 error => {[m
+ [m
+                     this.loading = false;[m
+[31m-                    alert(JSON.parse(error._body).message);[m
+[31m-[m
+[32m+[m[32m                    this._invalidCredential = true;[m
+                 });[m
+     }[m
+[32m+[m
+[32m+[m
+ }[m
+\ No newline at end of file[m
